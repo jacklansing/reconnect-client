@@ -1,4 +1,6 @@
 import React from 'react';
+import PublicOnlyRoute from './Utils/PublicOnlyRoute';
+// import PrivateOnlyRoute from './Utils/PrivateRoute';
 import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing/Landing';
 import SignUp from './Components/SignUp/SignUp';
@@ -10,8 +12,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Route exact path="/" component={Landing} />
-      <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/login" component={Login} />
+      <PublicOnlyRoute path="/signup" component={SignUp} />
+      <PublicOnlyRoute path="/login" component={Login} />
     </div>
   );
 }
