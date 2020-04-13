@@ -10,9 +10,9 @@ class Login extends Component {
         <section className="Sign-Up">
           <h2>Log In</h2>
           <form className="Sign-Up__form">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" id="email" name="email" />
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" />
             <input type="submit" />
           </form>
