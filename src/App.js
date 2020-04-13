@@ -5,15 +5,17 @@ import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing/Landing';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/LogIn/Login';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Route exact path="/" component={Landing} />
-      <PublicOnlyRoute path="/signup" component={SignUp} />
-      <PublicOnlyRoute path="/login" component={Login} />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <PublicOnlyRoute path="/signup" component={SignUp} />
+        <PublicOnlyRoute path="/login" component={Login} />
+      </Switch>
     </div>
   );
 }
