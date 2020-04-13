@@ -1,0 +1,33 @@
+.Hero {
+  text-align: center;
+  background-color: darkgray;
+  height: 100px;
+  padding: 0.5rem;
+}
+
+.New-Post {
+  text-align: center;
+  margin: 1rem;
+}
+
+.New-Post__form {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  gap: 1rem 1.25rem;
+}
+
+.New-Post__form > label {
+  width: 100%;
+  text-align: right;
+  padding: 0.25rem;
+}
+
+.New-Post__form > input {
+  padding: 0.25rem;
+}
+
+.New-Post__form > input[type='submit'] {
+  grid-column: -1 / 1;
+  padding: 0.5rem;
+}
