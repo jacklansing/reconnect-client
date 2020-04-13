@@ -8,10 +8,8 @@ const AuthApiService = {
         'content-type': 'application/json'
       },
       body: JSON.stringify(user)
-    }).then(res => 
-      (!res.ok)
-      ? res.json().then(e => Promise.reject(e))
-      : res.json()
-      )
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
