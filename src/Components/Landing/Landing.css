@@ -1,0 +1,13 @@
+.Hero {
+  text-align: center;
+  background-color: darkgray;
+  height: 200px;
+  padding: 0.5rem;
+}
+
+.Info {
+  height: 300px;
+  text-align: center;
+  background-color: gray;
+  padding: 0.5rem;
+}
