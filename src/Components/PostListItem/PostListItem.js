@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class PostListItem extends Component {
-  state = {
-    author_id: this.props.id
+  handleSendMessage = () => {
+    console.log(this.props.author_id);
   };
 
   render() {
@@ -13,6 +13,7 @@ class PostListItem extends Component {
         <p>{this.props.device}</p>
         <p>{this.props.condition}</p>
         <p>{this.props.location}</p>
+        <button onClick={this.handleSendMessage}>Send Message</button>
       </li>
     );
   }

@@ -98,7 +98,7 @@ class PostsList extends Component {
             {posts.map(post => (
               <PostListItem
                 key={post.id}
-                author_id={post.id}
+                author_id={post.user_id}
                 title={post.title}
                 description={post.description}
                 device={post.device}
