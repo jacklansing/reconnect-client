@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PostListItem from '../PostListItem/PostListItem';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -8,7 +9,7 @@ class PostsList extends Component {
     posts: [],
     error: null,
     search: '',
-    location: ''
+    location: 'Albany, NY'
   };
 
   componentDidMount() {
@@ -34,6 +35,7 @@ class PostsList extends Component {
 
     const queryParams = params.join('&');
 
+    console.log('queryParams are', queryParams);
     AuthApiService.getSearchPosts(queryParams)
       .then(posts => this.setState({ posts }))
       .catch(res => {
@@ -78,7 +80,8 @@ class PostsList extends Component {
               value={this.state.location}
               onChange={e => this.setLocation(e.target.value)}
             >
-              <option value="Albany, NY" default="Albany, NY">
+              <option value="">All</option>
+              <option value="Albany, NY" default>
                 Albany, NY
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
@@ -93,13 +96,15 @@ class PostsList extends Component {
           </div>
           <ul className="Results__list">
             {posts.map(post => (
-              <li key={post.id}>
-                <h4>{post.title}</h4>
-                <p>{post.description}</p>
-                <p>{post.device}</p>
-                <p>{post.condition}</p>
-                <p>{post.location}</p>
-              </li>
+              <PostListItem
+                key={post.id}
+                author_id={post.id}
+                title={post.title}
+                description={post.description}
+                device={post.device}
+                condition={post.condition}
+                location={post.location}
+              />
             ))}
           </ul>
         </section>
