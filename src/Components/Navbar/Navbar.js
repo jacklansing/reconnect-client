@@ -10,7 +10,7 @@ class Navbar extends Component {
         <Link to="/">Home</Link>
         <Link to="/posts">Posts</Link>
         <Link to="/new-post">New Post</Link>
-        <Link to="/">Messages</Link>
+        <Link to="/messages">Messages</Link>
         <Link onClick={this.handleLogout} to="/">
           Sign Out
         </Link>
