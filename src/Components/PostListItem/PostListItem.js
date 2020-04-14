@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class PostListItem extends Component {
-  handleSendMessage = () => {
-    console.log(this.props.author_id);
-  };
-
   render() {
+    const { author_id } = this.props;
     return (
       <li>
         <h4>{this.props.title}</h4>
@@ -13,7 +11,14 @@ class PostListItem extends Component {
         <p>{this.props.device}</p>
         <p>{this.props.condition}</p>
         <p>{this.props.location}</p>
-        <button onClick={this.handleSendMessage}>Send Message</button>
+        <Link
+          to={{
+            pathname: '/new-message',
+            state: { author_id, test: 'hello' }
+          }}
+        >
+          Send Message
+        </Link>
       </li>
     );
   }

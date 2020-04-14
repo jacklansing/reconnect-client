@@ -7,6 +7,7 @@ import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/LogIn/Login';
 import PostsList from './Components/PostsList/PostsList';
 import NewPostForm from './Components/NewPostForm/NewPostForm';
+import NewMessageForm from './Components/NewMessageForm/NewMessageForm';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <PublicOnlyRoute path="/login" component={Login} />
           <PrivateOnlyRoute path="/new-post" component={NewPostForm} />
           <PrivateOnlyRoute path="/posts" component={PostsList} />
+          <PrivateOnlyRoute path="/new-message" component={NewMessageForm} />
         </Switch>
       </div>
     );
