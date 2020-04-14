@@ -1,35 +1,37 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 
 class MessagesList extends Component {
   state = {
-    messages: [],
+    threads: [],
     error: null
   };
 
   componentDidMount() {
-    AuthApiService.getMessageThreads().then(threads => console.log(threads));
+    AuthApiService.getMessageThreads()
+      .then(threads => this.setState({ threads }))
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
   }
 
   render() {
+    const { threads } = this.state;
     return (
       <>
         <header role="banner" className="Hero">
           <h1>Re-Connect</h1>
         </header>
         <section className="Messages">
-          <h2>Messages</h2>
+          <h2>Conversations</h2>
           <ul className="Messages__list">
-            <li>
-              <h3>Bob</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <button>Reply</button>
-            </li>
+            {threads.map(thread => (
+              <li key={thread.thread_id}>
+                With [ {thread.display_name} ] <p>{thread.content}</p>
+                <Link to={`/messages/${thread.thread_id}`}>Message back</Link>
+              </li>
+            ))}
           </ul>
         </section>
       </>
