@@ -16,10 +16,7 @@ class NewPostForm extends Component {
       description: description.value,
       device: device.value,
       condition: condition.value,
-      location: location.value,
-      //TODO: retrieve user_is server-side to make related post
-      // hardcoded user id for now, testing only
-      user_id: 4
+      location: location.value
     })
       .then(device => {
         title.value = '';

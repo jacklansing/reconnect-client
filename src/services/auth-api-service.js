@@ -1,4 +1,5 @@
 import config from '../config';
+import TokenService from './token-service';
 
 const AuthApiService = {
   postUser(user) {
@@ -27,7 +28,8 @@ const AuthApiService = {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify(postContent)
     });
