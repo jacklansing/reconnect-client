@@ -8,7 +8,7 @@ class Navbar extends Component {
     return (
       <>
         <Link to="/">Home</Link>
-        <Link to="/">Posts</Link>
+        <Link to="/posts">Posts</Link>
         <Link to="/new-post">New Post</Link>
         <Link to="/">Messages</Link>
         <Link onClick={this.handleLogout} to="/">
