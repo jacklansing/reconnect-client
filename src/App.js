@@ -10,12 +10,13 @@ import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
+    console.log('App rendered');
     return (
       <div className="App">
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <PublicOnlyRoute path="/signup" component={SignUp} />
+          <PublicOnlyRoute path="/sign-up" component={SignUp} />
           <PublicOnlyRoute path="/login" component={Login} />
           <PrivateOnlyRoute path="/new-post" component={NewPostForm} />
         </Switch>

@@ -22,7 +22,7 @@ class Navbar extends Component {
     return (
       <>
         <Link to="/">Home</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/sign-up">Sign Up</Link>
         <Link to="/login">Log In</Link>
       </>
     );
