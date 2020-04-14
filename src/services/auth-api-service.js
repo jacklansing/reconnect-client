@@ -57,7 +57,7 @@ const AuthApiService = {
     );
   },
   postMessageThread(recipient_id) {
-    return fetch(`${config.API_ENDPOINT}/messages/new-thread`, {
+    return fetch(`${config.API_ENDPOINT}/threads`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
