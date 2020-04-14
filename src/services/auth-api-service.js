@@ -55,6 +55,30 @@ const AuthApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  postMessageThread(recipient_id) {
+    return fetch(`${config.API_ENDPOINT}/messages/new-thread`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({ recipient_id })
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+  postNewMessage(message) {
+    return fetch(`${config.API_ENDPOINT}/messages`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(message)
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
 
