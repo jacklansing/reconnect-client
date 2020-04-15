@@ -89,6 +89,16 @@ const AuthApiService = {
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
+  },
+  getMessageThreadChats(thread_id) {
+    return fetch(`${config.API_ENDPOINT}/threads/${thread_id}`, {
+      method: 'GET',
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
 

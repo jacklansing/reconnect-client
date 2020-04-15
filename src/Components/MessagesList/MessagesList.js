@@ -29,7 +29,14 @@ class MessagesList extends Component {
             {threads.map(thread => (
               <li key={thread.thread_id}>
                 With [ {thread.display_name} ] <p>{thread.content}</p>
-                <Link to={`/messages/${thread.thread_id}`}>Message back</Link>
+                <Link
+                  to={{
+                    pathname: '/messages/chat',
+                    state: thread.thread_id
+                  }}
+                >
+                  Message back
+                </Link>
               </li>
             ))}
           </ul>
