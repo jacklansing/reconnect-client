@@ -18,7 +18,6 @@ class Login extends Component {
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
         this.props.setAuthStatus(true);
-        this.props.history.push('/');
       })
       .catch(res => {
         this.setState({ error: res.error });
