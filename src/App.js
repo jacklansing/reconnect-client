@@ -11,6 +11,7 @@ import NewMessageForm from './Components/NewMessageForm/NewMessageForm';
 import MessagesList from './Components/MessagesList/MessagesList';
 import MessagesChat from './Components/MessagesChat/MessagesChat';
 import { Route, Switch } from 'react-router-dom';
+import TokenService from './services/token-service';
 
 class App extends Component {
   state = {
@@ -22,6 +23,12 @@ class App extends Component {
       hasAuth: bool
     });
   };
+
+  componentDidMount() {
+    if (TokenService.hasAuthToken) {
+      this.setAuthStatus(true);
+    }
+  }
 
   render() {
     return (
