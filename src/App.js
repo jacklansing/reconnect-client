@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if (TokenService.hasAuthToken) {
+    if (TokenService.hasAuthToken()) {
       this.setAuthStatus(true);
     }
   }
