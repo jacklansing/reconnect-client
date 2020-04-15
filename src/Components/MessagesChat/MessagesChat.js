@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import './MessagesChat.css';
 
 class MessagesChat extends Component {
   state = {
@@ -46,7 +47,7 @@ class MessagesChat extends Component {
           <input type="text" id="content" name="content" />
           <input type="submit" />
         </form>
-        <ul>
+        <ul className="Messages__list">
           {messages.map(message => (
             <li key={message.id}>
               {message.display_name}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import './MessagesList.css';
 
 class MessagesList extends Component {
   state = {
@@ -28,7 +29,7 @@ class MessagesList extends Component {
           <ul className="Messages__list">
             {threads.map(thread => (
               <li key={thread.thread_id}>
-                With [ {thread.display_name} ] <p>{thread.content}</p>
+                With [ {thread.display_name} ]<p>{thread.content}</p>
                 <Link
                   to={{
                     pathname: '/messages/chat',
