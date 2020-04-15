@@ -13,15 +13,30 @@ import MessagesChat from './Components/MessagesChat/MessagesChat';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
+  state = {
+    hasAuth: false
+  };
+
+  setAuthStatus = bool => {
+    this.setState({
+      hasAuth: bool
+    });
+  };
+
   render() {
-    console.log('App rendered');
     return (
       <div className="App">
-        <Navbar />
+        <Navbar
+          authStatus={this.state.hasAuth}
+          setAuthStatus={this.setAuthStatus}
+        />
         <Switch>
           <Route exact path="/" component={Landing} />
           <PublicOnlyRoute path="/sign-up" component={SignUp} />
-          <PublicOnlyRoute path="/login" component={Login} />
+          <PublicOnlyRoute
+            path="/login"
+            component={() => <Login setAuthStatus={this.setAuthStatus} />}
+          />
           <PrivateOnlyRoute path="/new-post" component={NewPostForm} />
           <PrivateOnlyRoute path="/posts" component={PostsList} />
           <PrivateOnlyRoute path="/new-message" component={NewMessageForm} />

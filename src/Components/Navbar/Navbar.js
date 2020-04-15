@@ -30,12 +30,13 @@ class Navbar extends Component {
 
   handleLogout = () => {
     TokenService.clearAuthToken();
+    this.props.setAuthStatus(false);
   };
 
   render() {
     return (
       <nav role="navigation" className="Navbar">
-        {TokenService.hasAuthToken()
+        {this.props.authStatus
           ? this.makeLoggedInNavBar()
           : this.makeLoggedOutNavBar()}
       </nav>

@@ -35,7 +35,6 @@ class PostsList extends Component {
 
     const queryParams = params.join('&');
 
-    console.log('queryParams are', queryParams);
     AuthApiService.getSearchPosts(queryParams)
       .then(posts => this.setState({ posts }))
       .catch(res => {
