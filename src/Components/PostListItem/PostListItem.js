@@ -6,6 +6,7 @@ class PostListItem extends Component {
     const {
       author_id,
       post_id,
+      author_name,
       title,
       description,
       device,
@@ -16,6 +17,7 @@ class PostListItem extends Component {
     return (
       <li>
         <h4>{title}</h4>
+        <p>{author_name}</p>
         <p>{description}</p>
         <p>{device}</p>
         <p>{condition}</p>

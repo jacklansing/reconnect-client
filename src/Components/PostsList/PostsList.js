@@ -98,6 +98,7 @@ class PostsList extends Component {
               <PostListItem
                 key={post.id}
                 author_id={post.user_id}
+                author_name={post.post_author}
                 title={post.title}
                 description={post.description}
                 device={post.device}
