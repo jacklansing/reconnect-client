@@ -46,6 +46,16 @@ const AuthApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  getAllPostsByUser() {
+    return fetch(`${config.API_ENDPOINT}/posts/user-posts`, {
+      method: 'GET',
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
   getSearchPosts(params) {
     return fetch(`${config.API_ENDPOINT}/posts?${params}`, {
       method: 'GET',

@@ -13,11 +13,11 @@ class NewMessageForm extends Component {
     const { content } = e.target;
     try {
       const thread = await AuthApiService.postMessageThread(recipient_id);
-      const message = await AuthApiService.postNewMessage({
+      await AuthApiService.postNewMessage({
         content: content.value,
         thread_id: thread.id
       });
-      console.log('message is', message);
+      this.props.history.push('/messages');
     } catch (e) {
       this.setState({ error: e });
     }

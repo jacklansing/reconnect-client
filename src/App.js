@@ -10,6 +10,7 @@ import NewPostForm from './Components/NewPostForm/NewPostForm';
 import NewMessageForm from './Components/NewMessageForm/NewMessageForm';
 import MessagesList from './Components/MessagesList/MessagesList';
 import MessagesChat from './Components/MessagesChat/MessagesChat';
+import PostListPersonal from './Components/PostsList-Personal/PostsList-Personal';
 import { Route, Switch } from 'react-router-dom';
 import TokenService from './services/token-service';
 
@@ -49,6 +50,7 @@ class App extends Component {
           <PrivateOnlyRoute path="/new-message" component={NewMessageForm} />
           <PrivateOnlyRoute exact path="/messages" component={MessagesList} />
           <PrivateOnlyRoute path="/messages/chat" component={MessagesChat} />
+          <PrivateOnlyRoute path="/my-posts" component={PostListPersonal} />
         </Switch>
       </div>
     );
