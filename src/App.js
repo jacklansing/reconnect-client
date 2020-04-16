@@ -47,10 +47,10 @@ class App extends Component {
           />
           <PrivateOnlyRoute path="/new-post" component={NewPostForm} />
           <PrivateOnlyRoute path="/posts" component={PostsList} />
+          <PrivateOnlyRoute path="/my-posts" component={PostListPersonal} />
           <PrivateOnlyRoute path="/new-message" component={NewMessageForm} />
           <PrivateOnlyRoute exact path="/messages" component={MessagesList} />
           <PrivateOnlyRoute path="/messages/chat" component={MessagesChat} />
-          <PrivateOnlyRoute path="/my-posts" component={PostListPersonal} />
         </Switch>
       </div>
     );

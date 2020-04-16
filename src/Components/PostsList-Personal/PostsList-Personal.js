@@ -7,9 +7,7 @@ import './PostsList-Personal.css';
 class PostsListPersonal extends Component {
   state = {
     posts: [],
-    error: null,
-    search: '',
-    location: 'Albany, NY'
+    error: null
   };
 
   componentDidMount() {
@@ -18,40 +16,6 @@ class PostsListPersonal extends Component {
       .catch(res => {
         this.setState({ error: res.error });
       });
-  }
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    const params = [];
-
-    if (this.state.search) {
-      params.push(`search=${this.state.search}`);
-    }
-
-    if (this.state.location) {
-      params.push(`location=${this.state.location}`);
-    }
-
-    const queryParams = params.join('&');
-
-    AuthApiService.getSearchPosts(queryParams)
-      .then(posts => this.setState({ posts }))
-      .catch(res => {
-        this.setState({ error: res.error });
-      });
-  };
-
-  setSearch(search) {
-    this.setState({
-      search
-    });
-  }
-
-  setLocation(location) {
-    this.setState({
-      location
-    });
   }
 
   render() {
