@@ -3,22 +3,51 @@ import { Link } from 'react-router-dom';
 
 class PostListItem extends Component {
   render() {
-    const { author_id } = this.props;
+    const {
+      author_id,
+      post_id,
+      title,
+      description,
+      device,
+      condition,
+      location,
+      userCanEdit
+    } = this.props;
     return (
       <li>
-        <h4>{this.props.title}</h4>
-        <p>{this.props.description}</p>
-        <p>{this.props.device}</p>
-        <p>{this.props.condition}</p>
-        <p>{this.props.location}</p>
+        <h4>{title}</h4>
+        <p>{description}</p>
+        <p>{device}</p>
+        <p>{condition}</p>
+        <p>{location}</p>
         <Link
           to={{
             pathname: '/new-message',
-            state: { author_id, test: 'hello' }
+            state: { author_id }
           }}
         >
           Send Message
         </Link>
+        <p>
+          {userCanEdit && (
+            <Link
+              to={{
+                pathname: '/edit-post',
+                postProps: {
+                  author_id,
+                  post_id,
+                  title,
+                  description,
+                  device,
+                  condition,
+                  location
+                }
+              }}
+            >
+              Edit Post
+            </Link>
+          )}
+        </p>
       </li>
     );
   }

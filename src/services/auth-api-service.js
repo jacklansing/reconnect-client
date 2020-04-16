@@ -36,6 +36,16 @@ const AuthApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  updateDevice(updatedPost) {
+    return fetch(`${config.API_ENDPOINT}/posts`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(updatedPost)
+    });
+  },
   getAllPosts() {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'GET',

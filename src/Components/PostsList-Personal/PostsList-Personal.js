@@ -35,11 +35,13 @@ class PostsListPersonal extends Component {
               <PostListItem
                 key={post.id}
                 author_id={post.user_id}
+                post_id={post.id}
                 title={post.title}
                 description={post.description}
                 device={post.device}
                 condition={post.condition}
                 location={post.location}
+                userCanEdit={post.userCanEdit}
               />
             ))}
           </ul>

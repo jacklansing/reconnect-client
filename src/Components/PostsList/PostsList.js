@@ -103,6 +103,7 @@ class PostsList extends Component {
                 device={post.device}
                 condition={post.condition}
                 location={post.location}
+                userCanEdit={post.userCanEdit}
               />
             ))}
           </ul>
