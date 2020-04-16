@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AuthApiService from '../../services/auth-api-service';
 
 class PostListItem extends Component {
+  state = {
+    error: null
+  };
+
+  handleDeletePost = async () => {
+    try {
+      await AuthApiService.deletePost(this.props.post_id);
+    } catch (e) {
+      this.setState({ error: e });
+    }
+    this.props.deletePost(this.props.post_id);
+  };
+
   render() {
     const {
       author_id,
@@ -50,6 +64,9 @@ class PostListItem extends Component {
             </Link>
           )}
         </p>
+        {userCanEdit && (
+          <button onClick={this.handleDeletePost}>Delete This Post</button>
+        )}
       </li>
     );
   }

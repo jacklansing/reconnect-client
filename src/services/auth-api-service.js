@@ -76,6 +76,16 @@ const AuthApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  deletePost(id) {
+    return fetch(`${config.API_ENDPOINT}/posts/${id}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
   postMessageThread(recipient_id) {
     return fetch(`${config.API_ENDPOINT}/threads`, {
       method: 'POST',

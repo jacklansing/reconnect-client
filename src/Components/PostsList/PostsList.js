@@ -20,6 +20,14 @@ class PostsList extends Component {
       });
   }
 
+  deletePost = id => {
+    const { posts } = this.state;
+    const updatedPosts = posts.filter(p => p.id !== id);
+    this.setState({
+      posts: updatedPosts
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -97,6 +105,7 @@ class PostsList extends Component {
             {posts.map(post => (
               <PostListItem
                 key={post.id}
+                post_id={post.id}
                 author_id={post.user_id}
                 author_name={post.post_author}
                 title={post.title}
@@ -105,6 +114,7 @@ class PostsList extends Component {
                 condition={post.condition}
                 location={post.location}
                 userCanEdit={post.userCanEdit}
+                deletePost={this.deletePost}
               />
             ))}
           </ul>

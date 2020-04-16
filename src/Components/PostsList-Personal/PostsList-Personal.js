@@ -18,6 +18,14 @@ class PostsListPersonal extends Component {
       });
   }
 
+  deletePost = id => {
+    const { posts } = this.state;
+    const updatedPosts = posts.filter(p => p.id !== id);
+    this.setState({
+      posts: updatedPosts
+    });
+  };
+
   render() {
     const { posts } = this.state;
     return (
@@ -42,6 +50,7 @@ class PostsListPersonal extends Component {
                 condition={post.condition}
                 location={post.location}
                 userCanEdit={post.userCanEdit}
+                deletePost={this.deletePost}
               />
             ))}
           </ul>
