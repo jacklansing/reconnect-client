@@ -7,20 +7,21 @@ class NewMessageForm extends Component {
     error: null
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault();
     const recipient_id = this.props.location.state.author_id;
     const { content } = e.target;
-    try {
-      const thread = await AuthApiService.postMessageThread(recipient_id);
-      await AuthApiService.postNewMessage({
-        content: content.value,
-        thread_id: thread.id
+    AuthApiService.postMessageThread(recipient_id)
+      .then(thread =>
+        AuthApiService.postNewMessage({
+          content: content.value,
+          thread_id: thread.id
+        })
+      )
+      .then(() => this.props.history.push('/messages'))
+      .catch(res => {
+        this.setState({ error: res.error });
       });
-      this.props.history.push('/messages');
-    } catch (e) {
-      this.setState({ error: e });
-    }
   };
 
   render() {

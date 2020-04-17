@@ -7,13 +7,17 @@ class PostListItem extends Component {
     error: null
   };
 
-  handleDeletePost = async () => {
-    try {
-      await AuthApiService.deletePost(this.props.post_id);
-    } catch (e) {
-      this.setState({ error: e });
-    }
-    this.props.deletePost(this.props.post_id);
+  handleDeletePost = () => {
+    this.setState({ error: null });
+    AuthApiService.deletePost(this.props.post_id)
+      .then(res => {
+        this.props.deletePost(this.props.post_id);
+      })
+      .catch(res => {
+        this.setState({
+          error: `There was a problem deleting this post. Please try again later`
+        });
+      });
   };
 
   render() {
@@ -28,8 +32,11 @@ class PostListItem extends Component {
       location,
       userCanEdit
     } = this.props;
+
+    const { error } = this.state;
     return (
       <li>
+        <div role="alert">{error && <p>{error}</p>}</div>
         <h4>{title}</h4>
         <p>{author_name}</p>
         <p>{description}</p>

@@ -82,9 +82,9 @@ const AuthApiService = {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`
       }
-    }).then(res =>
-      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-    );
+    }).then(res => {
+      return !res.ok ? res.then(e => Promise.reject(e)) : res;
+    });
   },
   postMessageThread(recipient_id) {
     return fetch(`${config.API_ENDPOINT}/threads`, {
