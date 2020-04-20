@@ -42,13 +42,13 @@ class MessagesChat extends Component {
     console.log(messages);
     return (
       <>
-        <form className="Message__form" onSubmit={this.handleSubmit}>
+        <form className="MessageChat__form" onSubmit={this.handleSubmit}>
           <h2>New Message</h2>
           <label htmlFor="content">Reply :</label>
           <input type="text" id="content" name="content" />
           <Button type="submit">Reply</Button>
         </form>
-        <ul className="Messages__list">
+        <ul className="MessagesChat__list">
           {messages.map(message => (
             <li key={message.id}>
               {message.display_name}

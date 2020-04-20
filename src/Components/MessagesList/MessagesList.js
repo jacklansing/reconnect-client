@@ -17,6 +17,13 @@ class MessagesList extends Component {
       });
   }
 
+  formatDate(timestamp) {
+    const currentDate = new Date(timestamp);
+    const time = currentDate.toLocaleTimeString();
+    const date = currentDate.toLocaleDateString();
+    return `${date} at ${time}`;
+  }
+
   render() {
     const { threads } = this.state;
     return (
@@ -26,15 +33,17 @@ class MessagesList extends Component {
           <ul className="Messages__list">
             {threads.map(thread => (
               <li key={thread.thread_id}>
-                With [ {thread.display_name} ]<p>{thread.content}</p>
+                <p className="displayName">{thread.display_name}</p>
+                <p>{thread.content}</p>
                 <Link
                   to={{
                     pathname: '/messages/chat',
                     state: thread.thread_id
                   }}
                 >
-                  Message back
+                  Reply
                 </Link>
+                <p>{this.formatDate(thread.date_created)}</p>
               </li>
             ))}
           </ul>
