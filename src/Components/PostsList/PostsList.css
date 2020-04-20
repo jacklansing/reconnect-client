@@ -27,7 +27,6 @@ button {
 }
 
 .Results {
-  background-color: darkgray;
   padding: 1rem;
 }
 
@@ -37,12 +36,5 @@ button {
 
 .Results__list {
   list-style-type: none;
-  text-align: center;
   padding: 0;
-}
-
-.Results__list > li {
-  border: 1px solid black;
-  padding: 0.25rem;
-  margin-bottom: 0.25rem;
 }
