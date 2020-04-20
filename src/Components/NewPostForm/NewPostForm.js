@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Textarea, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './NewPostForm.css';
 
@@ -35,40 +36,37 @@ class NewPostForm extends Component {
   render() {
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="New-Post">
           <h2>New Post</h2>
           <form className="New-Post__form" onSubmit={this.handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" />
+            <Input type="text" id="title" name="title" />
             <label htmlFor="description">Description</label>
-            <textarea id="description" name="description"></textarea>
+            <Textarea id="description" name="description"></Textarea>
             <label htmlFor="device">Device Type</label>
-            <select name="device" id="device">
+            <Select name="device" id="device">
               <option value="Android" default>
                 Android
               </option>
               <option value="iPhone">iPhone</option>
               <option value="Windows">Windows</option>
               <option value="Macbook">Macbook</option>
-            </select>
+            </Select>
             <label htmlFor="condition">Condition</label>
-            <select name="condition" id="condition">
+            <Select name="condition" id="condition">
               <option value="very good">Very Good</option>
               <option value="good" default>
                 Good
               </option>
               <option value="okay">Okay</option>
               <option value="damaged">Damaged</option>
-            </select>
+            </Select>
             <label htmlFor="location">Location</label>
-            <select id="location" name="location">
+            <Select id="location" name="location">
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
-            <input type="submit" />
+            </Select>
+            <Button type="submit">New Post</Button>
           </form>
         </section>
       </>

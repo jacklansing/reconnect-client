@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Textarea, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './EditPostForm.css';
 
@@ -39,14 +40,11 @@ class EditPostForm extends Component {
   render() {
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
-        <section className="New-Post">
-          <h2>New Post</h2>
-          <form className="New-Post__form" onSubmit={this.handleSubmit}>
+        <section className="Edit-Post">
+          <h2>Update Post</h2>
+          <form className="Edit-Post__form" onSubmit={this.handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input
+            <Input
               type="text"
               id="title"
               name="title"
@@ -54,14 +52,14 @@ class EditPostForm extends Component {
               onChange={e => this.setState({ title: e.target.value })}
             />
             <label htmlFor="description">Description</label>
-            <textarea
+            <Textarea
               id="description"
               name="description"
               value={this.state.description}
               onChange={e => this.setState({ description: e.target.value })}
             />
             <label htmlFor="device">Device Type</label>
-            <select
+            <Select
               name="device"
               id="device"
               value={this.state.device}
@@ -73,9 +71,9 @@ class EditPostForm extends Component {
               <option value="iPhone">iPhone</option>
               <option value="Windows">Windows</option>
               <option value="Macbook">Macbook</option>
-            </select>
+            </Select>
             <label htmlFor="condition">Condition</label>
-            <select
+            <Select
               name="condition"
               id="condition"
               value={this.state.condition}
@@ -87,9 +85,9 @@ class EditPostForm extends Component {
               </option>
               <option value="okay">Okay</option>
               <option value="damaged">Damaged</option>
-            </select>
+            </Select>
             <label htmlFor="location">Location</label>
-            <select
+            <Select
               id="location"
               name="location"
               value={this.state.location}
@@ -97,8 +95,8 @@ class EditPostForm extends Component {
             >
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
-            <input type="submit" />
+            </Select>
+            <Button type="submit">Update Post</Button>
           </form>
         </section>
       </>

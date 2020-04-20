@@ -4,6 +4,10 @@ import TokenService from '../../services/token-service';
 import './Navbar.css';
 
 class Navbar extends Component {
+  state = {
+    displayNav: false
+  };
+
   makeLoggedInNavBar = () => {
     return (
       <>
@@ -34,9 +38,24 @@ class Navbar extends Component {
     this.props.setAuthStatus(false);
   };
 
+  handleToggleMenu = () => {
+    this.setState({
+      displayNav: !this.state.displayNav
+    });
+  };
+
   render() {
     return (
-      <nav role="navigation" className="Navbar">
+      <nav
+        role="navigation"
+        className={`Navbar ${this.state.displayNav ? 'shown' : 'hidden'}`}
+      >
+        <h1>Re-Connect</h1>
+        <button onClick={this.handleToggleMenu} className="Hamburger">
+          <span className="Hamburger__icon">
+            {this.state.displayNav ? '-' : '+'}
+          </span>
+        </button>
         {this.props.authStatus
           ? this.makeLoggedInNavBar()
           : this.makeLoggedOutNavBar()}

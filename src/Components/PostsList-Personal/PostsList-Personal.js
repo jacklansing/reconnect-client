@@ -30,15 +30,12 @@ class PostsListPersonal extends Component {
     const { posts } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
-        <section className="Results">
-          <h3>Results</h3>
+        <section className="Results-Personal">
+          <h2>My Posts</h2>
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
           </div>
-          <ul className="Results__list">
+          <ul className="Results-Personal__list">
             {posts.map(post => (
               <PostListItem
                 key={post.id}

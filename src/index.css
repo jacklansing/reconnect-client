@@ -13,7 +13,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body,
+textarea {
+  font-family: 'Oxygen', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html {
+  background-color: #eef4ed96;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
+import { Button, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -66,14 +67,11 @@ class PostsList extends Component {
     const { posts } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Search">
-          <h2>Search</h2>
+          <h2>Search Posts</h2>
           <form className="Search__form" onSubmit={this.handleSubmit}>
             <label htmlFor="search">Search</label>
-            <input
+            <Input
               type="text"
               id="title"
               name="title"
@@ -81,7 +79,7 @@ class PostsList extends Component {
               onChange={e => this.setSearch(e.target.value)}
             />
             <label htmlFor="location">Location</label>
-            <select
+            <Select
               id="location"
               name="location"
               value={this.state.location}
@@ -92,8 +90,8 @@ class PostsList extends Component {
                 Albany, NY
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
-            <button type="submit">Search Now</button>
+            </Select>
+            <Button type="submit">Search Now</Button>
           </form>
         </section>
         <section className="Results">

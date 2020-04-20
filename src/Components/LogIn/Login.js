@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import { Button, Input } from '../Utils/Utils';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 class Login extends Component {
   state = { error: null };
@@ -28,19 +31,20 @@ class Login extends Component {
     const { error } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
-        <section className="Sign-Up">
+        <section className="Log-In">
           <h2>Log In</h2>
           <div role="alert">{error && <p>{error}</p>}</div>
-          <form className="Sign-Up__form" onSubmit={this.handleSubmit}>
+          <form className="Log-In__form" onSubmit={this.handleSubmit}>
             <label htmlFor="user_name">User Name</label>
-            <input type="user_name" id="user_name" name="user_name" />
+            <Input type="user_name" id="user_name" name="user_name" />
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" />
-            <input type="submit" />
+            <Input type="password" id="password" name="password" />
+            <Button type="submit">Log In</Button>
           </form>
+          <p>Don't have an account yet?</p>
+          <p>
+            <Link to="/sign-up">Click here to sign up.</Link>
+          </p>
         </section>
       </>
     );

@@ -1,13 +1,8 @@
-.Hero {
-  text-align: center;
-  background-color: darkgray;
-  height: 200px;
-  padding: 0.5rem;
-}
-
 .Info {
   height: 300px;
+  max-width: 80%;
   text-align: center;
-  background-color: gray;
   padding: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }

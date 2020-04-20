@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Input } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesChat.css';
 
@@ -38,24 +39,23 @@ class MessagesChat extends Component {
 
   render() {
     const { messages } = this.state;
-    console.log(messages);
     return (
-      <>
-        <form className="Message__form" onSubmit={this.handleSubmit}>
-          <h2>New Message</h2>
-          <label htmlFor="content">Reply :</label>
-          <input type="text" id="content" name="content" />
-          <input type="submit" />
+      <section className="Messages">
+        <h2>New Reply</h2>
+        <form className="MessagesChat__form" onSubmit={this.handleSubmit}>
+          <label htmlFor="content">Message: </label>
+          <Input type="text" id="content" name="content" />
+          <Button type="submit">Reply</Button>
         </form>
-        <ul className="Messages__list">
+        <ul className="MessagesChat__list">
           {messages.map(message => (
             <li key={message.id}>
-              {message.display_name}
-              <p>{message.content}</p>
+              <p className="displayName">{message.display_name}</p>
+              <p className="messageContent">{message.content}</p>
             </li>
           ))}
         </ul>
-      </>
+      </section>
     );
   }
 }

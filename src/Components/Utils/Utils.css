@@ -1,0 +1,63 @@
+.Button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  margin: 0;
+  text-decoration: none;
+  background: #13315c;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.Button:hover,
+.Button:focus {
+  background: #0053ba;
+}
+
+.Button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.Buton:active {
+  transform: scale(0.99);
+}
+
+.Button.delete {
+  background-color: darkred;
+}
+
+.Button.delete:hover,
+.Button.delete:focus {
+  background: red;
+}
+
+.Textarea {
+  border: 0.4px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 3px 0px 0px lightgray;
+  padding: 0.5rem;
+  resize: none;
+  height: 150px;
+  width: 80vw;
+  font-size: 1.1rem;
+}
+
+.Input,
+.Select {
+  padding: 0.75rem;
+  border: 0.4px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 3px 0px 0px lightgray;
+}
+
+.Select {
+  background-color: white;
+}
