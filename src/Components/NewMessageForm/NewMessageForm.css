@@ -3,20 +3,20 @@
   margin: 1rem;
 }
 
+.Message > h2 {
+  text-align: left;
+}
+
 .Message__form {
   display: grid;
-  grid-template-columns: max-content;
+  grid-template-columns: fit-content;
   justify-content: center;
   gap: 1rem 1.25rem;
 }
 
-.Message_form > label {
+.Message__form > label {
   width: 100%;
-  text-align: right;
-  padding: 0.25rem;
-}
-
-.Message__form > textarea {
+  text-align: left;
   padding: 0.25rem;
 }
 
@@ -24,16 +24,4 @@
 button {
   grid-column: -1 / 1;
   padding: 0.5rem;
-}
-
-.cancel {
-  background-color: red;
-}
-
-.cancel:hover {
-  background-color: darkred;
-}
-
-.cancel:focus {
-  background-color: darkred;
 }

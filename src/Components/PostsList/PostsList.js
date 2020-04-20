@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
-import { Button } from '../Utils/Utils';
+import { Button, Input } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -68,10 +68,10 @@ class PostsList extends Component {
     return (
       <>
         <section className="Search">
-          <h2>Search</h2>
+          <h2>Search Posts</h2>
           <form className="Search__form" onSubmit={this.handleSubmit}>
             <label htmlFor="search">Search</label>
-            <input
+            <Input
               type="text"
               id="title"
               name="title"

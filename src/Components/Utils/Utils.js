@@ -10,3 +10,11 @@ export function DeleteButton({ className, ...props }) {
     <button className={['Button delete', className].join(' ')} {...props} />
   );
 }
+
+export function Textarea({ className, ...props }) {
+  return <textarea className={['Textarea', className].join(' ')} {...props} />;
+}
+
+export function Input({ className, ...props }) {
+  return <input className={['Input', className].join(' ')} {...props} />;
+}

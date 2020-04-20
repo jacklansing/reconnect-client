@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '../Utils/Utils';
+import { Button, Textarea, Input } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './EditPostForm.css';
 
@@ -40,11 +40,11 @@ class EditPostForm extends Component {
   render() {
     return (
       <>
-        <section className="New-Post">
+        <section className="Edit-Post">
           <h2>Update Post</h2>
-          <form className="New-Post__form" onSubmit={this.handleSubmit}>
+          <form className="Edit-Post__form" onSubmit={this.handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input
+            <Input
               type="text"
               id="title"
               name="title"
@@ -52,7 +52,7 @@ class EditPostForm extends Component {
               onChange={e => this.setState({ title: e.target.value })}
             />
             <label htmlFor="description">Description</label>
-            <textarea
+            <Textarea
               id="description"
               name="description"
               value={this.state.description}

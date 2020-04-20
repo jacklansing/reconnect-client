@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '../Utils/Utils';
+import { Button, DeleteButton, Textarea } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './NewMessageForm.css';
 
@@ -32,24 +32,17 @@ class NewMessageForm extends Component {
 
   render() {
     return (
-      <>
-        <section className="Message">
-          <form className="Message__form" onSubmit={this.handleSubmit}>
-            <h2>Start a new thread</h2>
-            <label htmlFor="content">Message:</label>
-            <textarea
-              id="content"
-              name="content"
-              rows="10"
-              cols="50"
-            ></textarea>
-            <Button type="submit">Send Message</Button>
-            <Button onClick={this.handleCancel} className="cancel">
-              Cancel
-            </Button>
-          </form>
-        </section>
-      </>
+      <section className="Message">
+        <h2>Start a new thread</h2>
+        <form className="Message__form" onSubmit={this.handleSubmit}>
+          <label htmlFor="content">Message:</label>
+          <Textarea id="content" name="content"></Textarea>
+          <Button type="submit">Send Message</Button>
+          <DeleteButton onClick={this.handleCancel} className="cancel">
+            Cancel
+          </DeleteButton>
+        </form>
+      </section>
     );
   }
 }

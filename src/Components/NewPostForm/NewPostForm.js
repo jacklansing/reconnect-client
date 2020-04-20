@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '../Utils/Utils';
+import { Button, Textarea, Input } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './NewPostForm.css';
 
@@ -40,9 +40,9 @@ class NewPostForm extends Component {
           <h2>New Post</h2>
           <form className="New-Post__form" onSubmit={this.handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" />
+            <Input type="text" id="title" name="title" />
             <label htmlFor="description">Description</label>
-            <textarea id="description" name="description"></textarea>
+            <Textarea id="description" name="description"></Textarea>
             <label htmlFor="device">Device Type</label>
             <select name="device" id="device">
               <option value="Android" default>

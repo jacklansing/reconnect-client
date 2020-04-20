@@ -11,10 +11,6 @@
   padding: 0.25rem;
 }
 
-.MessagesChat__form > input {
-  padding: 0.45rem;
-}
-
 .MessagesChat__form > button {
   margin-top: 1rem;
 }

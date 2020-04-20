@@ -31,7 +31,7 @@ class PostsListPersonal extends Component {
     return (
       <>
         <section className="Results-Personal">
-          <h3>My Posts</h3>
+          <h2>My Posts</h2>
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
           </div>

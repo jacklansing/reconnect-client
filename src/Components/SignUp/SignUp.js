@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
-import { Button } from '../Utils/Utils';
+import { Button, Input } from '../Utils/Utils';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -37,11 +37,11 @@ class SignUp extends Component {
           <div role="alert">{error && <p>{error}</p>}</div>
           <form className="Sign-Up__form" onSubmit={this.handleSubmit}>
             <label htmlFor="user_name">Username</label>
-            <input type="user_name" id="user_name" name="user_name" />
+            <Input type="user_name" id="user_name" name="user_name" />
             <label htmlFor="display_name">Display Name</label>
-            <input type="display_name" id="display_name" name="display_name" />
+            <Input type="display_name" id="display_name" name="display_name" />
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" />
+            <Input type="password" id="password" name="password" />
             <label htmlFor="type">Interest</label>
             <select id="type" name="type">
               <option value="Donor">Donor</option>
