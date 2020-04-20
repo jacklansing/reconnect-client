@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import { Button } from '../Utils/Utils';
 
 class Login extends Component {
   state = { error: null };
@@ -36,7 +37,7 @@ class Login extends Component {
             <input type="user_name" id="user_name" name="user_name" />
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" />
-            <input type="submit" />
+            <Button type="submit">Log In</Button>
           </form>
         </section>
       </>

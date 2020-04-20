@@ -18,7 +18,6 @@
   margin-right: 0.5rem;
   color: white;
   text-align: center;
-  display: none;
 }
 
 .Hamburger {
@@ -27,6 +26,8 @@
   position: absolute;
   top: 7.5px;
   right: 5px;
+  height: 50px;
+  width: 50px;
 }
 
 .Hamburger__icon {

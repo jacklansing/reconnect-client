@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PublicOnlyRoute from './Utils/PublicOnlyRoute';
-import PrivateOnlyRoute from './Utils/PrivateRoute';
+import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute';
+import PrivateOnlyRoute from './Components/Utils/PrivateRoute';
 import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing/Landing';
 import SignUp from './Components/SignUp/SignUp';

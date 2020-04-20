@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import { Button } from '../Utils/Utils';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -31,9 +32,6 @@ class SignUp extends Component {
     const { error } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Sign-Up">
           <h2>Sign Up</h2>
           <div role="alert">{error && <p>{error}</p>}</div>
@@ -49,7 +47,7 @@ class SignUp extends Component {
               <option value="Donor">Donor</option>
               <option value="Seeking">Seeking Tech</option>
             </select>
-            <input type="submit" />
+            <Button type="submit">Sign Up</Button>
           </form>
         </section>
       </>

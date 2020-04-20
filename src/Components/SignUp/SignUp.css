@@ -26,8 +26,3 @@
 .Sign-Up__form > input {
   padding: 0.25rem;
 }
-
-.Sign-Up__form > input[type='submit'] {
-  grid-column: -1 / 1;
-  padding: 0.5rem;
-}

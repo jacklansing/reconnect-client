@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
+import { Button } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -90,7 +91,7 @@ class PostsList extends Component {
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </select>
-            <button type="submit">Search Now</button>
+            <Button type="submit">Search Now</Button>
           </form>
         </section>
         <section className="Results">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './NewPostForm.css';
 
@@ -65,7 +66,7 @@ class NewPostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </select>
-            <input type="submit" />
+            <Button type="submit">New Post</Button>
           </form>
         </section>
       </>

@@ -32,3 +32,15 @@ button {
   grid-column: -1 / 1;
   padding: 0.5rem;
 }
+
+.cancel {
+  background-color: red;
+}
+
+.cancel:hover {
+  background-color: darkred;
+}
+
+.cancel:focus {
+  background-color: darkred;
+}

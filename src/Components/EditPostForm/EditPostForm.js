@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './EditPostForm.css';
 
@@ -40,7 +41,7 @@ class EditPostForm extends Component {
     return (
       <>
         <section className="New-Post">
-          <h2>New Post</h2>
+          <h2>Update Post</h2>
           <form className="New-Post__form" onSubmit={this.handleSubmit}>
             <label htmlFor="title">Title</label>
             <input
@@ -95,7 +96,7 @@ class EditPostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </select>
-            <input type="submit" />
+            <Button type="submit">Update Post</Button>
           </form>
         </section>
       </>

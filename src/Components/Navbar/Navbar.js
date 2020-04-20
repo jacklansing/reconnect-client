@@ -52,7 +52,9 @@ class Navbar extends Component {
       >
         <h1>Re-Connect</h1>
         <button onClick={this.handleToggleMenu} className="Hamburger">
-          <span className="Hamburger__icon">+</span>
+          <span className="Hamburger__icon">
+            {this.state.displayNav ? '-' : '+'}
+          </span>
         </button>
         {this.props.authStatus
           ? this.makeLoggedInNavBar()

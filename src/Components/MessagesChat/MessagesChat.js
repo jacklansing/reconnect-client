@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesChat.css';
 
@@ -45,7 +46,7 @@ class MessagesChat extends Component {
           <h2>New Message</h2>
           <label htmlFor="content">Reply :</label>
           <input type="text" id="content" name="content" />
-          <input type="submit" />
+          <Button type="submit">Reply</Button>
         </form>
         <ul className="Messages__list">
           {messages.map(message => (
