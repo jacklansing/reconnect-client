@@ -35,9 +35,6 @@ class NewPostForm extends Component {
   render() {
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="New-Post">
           <h2>New Post</h2>
           <form className="New-Post__form" onSubmit={this.handleSubmit}>

@@ -27,9 +27,6 @@ class NewMessageForm extends Component {
   render() {
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Message">
           <form className="Message__form" onSubmit={this.handleSubmit}>
             <h2>New Message</h2>

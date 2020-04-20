@@ -30,9 +30,6 @@ class PostsListPersonal extends Component {
     const { posts } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Results">
           <h3>Results</h3>
           <div role="alert">

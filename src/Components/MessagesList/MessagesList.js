@@ -21,9 +21,6 @@ class MessagesList extends Component {
     const { threads } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Messages">
           <h2>Conversations</h2>
           <ul className="Messages__list">

@@ -66,9 +66,6 @@ class PostsList extends Component {
     const { posts } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Search">
           <h2>Search</h2>
           <form className="Search__form" onSubmit={this.handleSubmit}>

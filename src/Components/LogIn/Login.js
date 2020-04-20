@@ -28,9 +28,6 @@ class Login extends Component {
     const { error } = this.state;
     return (
       <>
-        <header role="banner" className="Hero">
-          <h1>Re-Connect</h1>
-        </header>
         <section className="Sign-Up">
           <h2>Log In</h2>
           <div role="alert">{error && <p>{error}</p>}</div>
