@@ -8,14 +8,39 @@ class Navbar extends Component {
     displayNav: false
   };
 
+  loggedInLinks = [
+    {
+      to: '/',
+      label: 'Home'
+    },
+    {
+      to: '/posts',
+      label: 'Posts'
+    },
+    {
+      to: '/my-posts',
+      label: 'My Posts'
+    },
+    {
+      to: '/new-post',
+      label: 'New Post'
+    },
+    {
+      to: '/messages',
+      label: 'Messages'
+    }
+  ];
+
   makeLoggedInNavBar = () => {
     return (
       <>
-        <Link to="/">Home</Link>
-        <Link to="/posts">Posts</Link>
-        <Link to="/my-posts">My Posts</Link>
-        <Link to="/new-post">New Post</Link>
-        <Link to="/messages">Messages</Link>
+        {this.loggedInLinks.map(link => {
+          return (
+            <Link key={link.to} onClick={this.handleToggleMenu} to={link.to}>
+              {link.label}
+            </Link>
+          );
+        })}
         <Link onClick={this.handleLogout} to="/">
           Sign Out
         </Link>
@@ -23,12 +48,31 @@ class Navbar extends Component {
     );
   };
 
+  loggedOutLinks = [
+    {
+      to: '/',
+      label: 'Home'
+    },
+    {
+      to: '/sign-up',
+      label: 'Sign Up'
+    },
+    {
+      to: '/login',
+      label: 'Log In'
+    }
+  ];
+
   makeLoggedOutNavBar = () => {
     return (
       <>
-        <Link to="/">Home</Link>
-        <Link to="/sign-up">Sign Up</Link>
-        <Link to="/login">Log In</Link>
+        {this.loggedOutLinks.map(link => {
+          return (
+            <Link key={link.to} to={link.to} onClick={this.handleToggleMenu}>
+              {link.label}
+            </Link>
+          );
+        })}
       </>
     );
   };
