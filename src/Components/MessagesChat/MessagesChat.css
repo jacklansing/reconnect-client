@@ -1,3 +1,24 @@
+.MessagesChat__form {
+  display: grid;
+  grid-template-columns: max-content;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.MessagesChat__form > label {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.MessagesChat__form > input {
+  padding: 0.45rem;
+}
+
+.MessagesChat__form > button {
+  margin-top: 1rem;
+}
+
 .MessagesChat__list {
   list-style-type: none;
   padding: 0;
@@ -6,7 +27,15 @@
 }
 
 .MessagesChat__list li {
-  border: 1px solid black;
+  border: 0.4px solid black;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 2px 3px 0px 0px lightgray;
   padding: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.MessagesChat__list p.displayName {
+  font-weight: 700;
+  margin: 0;
 }

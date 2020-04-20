@@ -39,24 +39,23 @@ class MessagesChat extends Component {
 
   render() {
     const { messages } = this.state;
-    console.log(messages);
     return (
-      <>
-        <form className="MessageChat__form" onSubmit={this.handleSubmit}>
-          <h2>New Message</h2>
-          <label htmlFor="content">Reply :</label>
+      <section className="Messages">
+        <h2>New Reply</h2>
+        <form className="MessagesChat__form" onSubmit={this.handleSubmit}>
+          <label htmlFor="content">Message: </label>
           <input type="text" id="content" name="content" />
           <Button type="submit">Reply</Button>
         </form>
         <ul className="MessagesChat__list">
           {messages.map(message => (
             <li key={message.id}>
-              {message.display_name}
-              <p>{message.content}</p>
+              <p className="displayName">{message.display_name}</p>
+              <p className="messageContent">{message.content}</p>
             </li>
           ))}
         </ul>
-      </>
+      </section>
     );
   }
 }
