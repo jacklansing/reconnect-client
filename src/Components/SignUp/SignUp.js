@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
-import { Button, Input } from '../Utils/Utils';
+import { Button, Input, Select } from '../Utils/Utils';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -43,10 +43,10 @@ class SignUp extends Component {
             <label htmlFor="password">Password</label>
             <Input type="password" id="password" name="password" />
             <label htmlFor="type">Interest</label>
-            <select id="type" name="type">
+            <Select id="type" name="type">
               <option value="Donor">Donor</option>
               <option value="Seeking">Seeking Tech</option>
-            </select>
+            </Select>
             <Button type="submit">Sign Up</Button>
           </form>
         </section>

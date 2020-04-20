@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Textarea, Input } from '../Utils/Utils';
+import { Button, Textarea, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './EditPostForm.css';
 
@@ -59,7 +59,7 @@ class EditPostForm extends Component {
               onChange={e => this.setState({ description: e.target.value })}
             />
             <label htmlFor="device">Device Type</label>
-            <select
+            <Select
               name="device"
               id="device"
               value={this.state.device}
@@ -71,9 +71,9 @@ class EditPostForm extends Component {
               <option value="iPhone">iPhone</option>
               <option value="Windows">Windows</option>
               <option value="Macbook">Macbook</option>
-            </select>
+            </Select>
             <label htmlFor="condition">Condition</label>
-            <select
+            <Select
               name="condition"
               id="condition"
               value={this.state.condition}
@@ -85,9 +85,9 @@ class EditPostForm extends Component {
               </option>
               <option value="okay">Okay</option>
               <option value="damaged">Damaged</option>
-            </select>
+            </Select>
             <label htmlFor="location">Location</label>
-            <select
+            <Select
               id="location"
               name="location"
               value={this.state.location}
@@ -95,7 +95,7 @@ class EditPostForm extends Component {
             >
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
+            </Select>
             <Button type="submit">Update Post</Button>
           </form>
         </section>

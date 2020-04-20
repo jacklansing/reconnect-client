@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
-import { Button, Input } from '../Utils/Utils';
+import { Button, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -79,7 +79,7 @@ class PostsList extends Component {
               onChange={e => this.setSearch(e.target.value)}
             />
             <label htmlFor="location">Location</label>
-            <select
+            <Select
               id="location"
               name="location"
               value={this.state.location}
@@ -90,7 +90,7 @@ class PostsList extends Component {
                 Albany, NY
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
+            </Select>
             <Button type="submit">Search Now</Button>
           </form>
         </section>

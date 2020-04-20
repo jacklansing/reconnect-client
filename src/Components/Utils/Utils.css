@@ -50,10 +50,14 @@
   font-size: 1.1rem;
 }
 
-.Input {
+.Input,
+.Select {
   padding: 0.75rem;
   border: 0.4px solid black;
   border-radius: 4px;
   box-shadow: 2px 3px 0px 0px lightgray;
-  font-size: 1.1rem;
+}
+
+.Select {
+  background-color: white;
 }

@@ -16,14 +16,9 @@
   padding: 0.25rem;
 }
 
-.Search__form > input {
-  padding: 0.25rem;
-}
-
 .Search__form > button[type='submit'],
 button {
   grid-column: -1 / 1;
-  padding: 0.5rem;
 }
 
 .Results {

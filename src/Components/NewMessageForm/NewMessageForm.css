@@ -23,5 +23,4 @@
 .Message__form > input[type='submit'],
 button {
   grid-column: -1 / 1;
-  padding: 0.5rem;
 }

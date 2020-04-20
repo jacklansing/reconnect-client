@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Textarea, Input } from '../Utils/Utils';
+import { Button, Textarea, Input, Select } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './NewPostForm.css';
 
@@ -44,28 +44,28 @@ class NewPostForm extends Component {
             <label htmlFor="description">Description</label>
             <Textarea id="description" name="description"></Textarea>
             <label htmlFor="device">Device Type</label>
-            <select name="device" id="device">
+            <Select name="device" id="device">
               <option value="Android" default>
                 Android
               </option>
               <option value="iPhone">iPhone</option>
               <option value="Windows">Windows</option>
               <option value="Macbook">Macbook</option>
-            </select>
+            </Select>
             <label htmlFor="condition">Condition</label>
-            <select name="condition" id="condition">
+            <Select name="condition" id="condition">
               <option value="very good">Very Good</option>
               <option value="good" default>
                 Good
               </option>
               <option value="okay">Okay</option>
               <option value="damaged">Damaged</option>
-            </select>
+            </Select>
             <label htmlFor="location">Location</label>
-            <select id="location" name="location">
+            <Select id="location" name="location">
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
-            </select>
+            </Select>
             <Button type="submit">New Post</Button>
           </form>
         </section>

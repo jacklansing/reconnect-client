@@ -18,3 +18,7 @@ export function Textarea({ className, ...props }) {
 export function Input({ className, ...props }) {
   return <input className={['Input', className].join(' ')} {...props} />;
 }
+
+export function Select({ className, ...props }) {
+  return <select className={['Select', className].join(' ')} {...props} />;
+}
