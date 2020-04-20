@@ -1,10 +1,40 @@
 .Navbar {
-  background-color: gray;
+  background-color: #134074;
   display: flex;
   justify-content: flex-end;
+  flex-flow: column;
+}
+
+.Navbar.hidden > a {
+  display: none;
+}
+
+.Navbar.shown > a {
+  display: inline-block;
 }
 
 .Navbar > a {
   padding: 1rem 0.5rem;
   margin-right: 0.5rem;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
+.Hamburger {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 7.5px;
+  right: 5px;
+}
+
+.Hamburger__icon {
+  color: white;
+  font-size: 2rem;
+}
+
+h1 {
+  color: white;
+  padding-left: 0.5rem;
 }
