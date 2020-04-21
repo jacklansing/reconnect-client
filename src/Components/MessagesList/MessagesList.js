@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesList.css';
 
 class MessagesList extends Component {
   state = {
     threads: [],
+    loading: false,
     error: null
   };
 
   componentDidMount() {
+    this.setState({ loading: true });
     AuthApiService.getMessageThreads()
-      .then(threads => this.setState({ threads }))
+      .then(threads => this.setState({ threads, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 
@@ -47,6 +50,7 @@ class MessagesList extends Component {
               </li>
             ))}
           </ul>
+          {this.state.loading && <Spinner />}
         </section>
       </>
     );

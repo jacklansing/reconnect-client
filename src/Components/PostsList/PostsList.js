@@ -18,12 +18,9 @@ class PostsList extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     AuthApiService.getAllPosts()
-      .then(posts => {
-        this.setState({ loading: false });
-        this.setState({ posts });
-      })
+      .then(posts => this.setState({ posts, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 

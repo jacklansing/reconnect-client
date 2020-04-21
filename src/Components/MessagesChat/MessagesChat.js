@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { Button, Input, Label } from '../Utils/Utils';
+import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesChat.css';
 
 class MessagesChat extends Component {
   state = {
     messages: [],
+    loading: false,
     error: null
   };
 
   componentDidMount() {
+    this.setState({ loading: true });
     const thread_id = this.props.location.state;
     AuthApiService.getMessageThreadChats(thread_id)
-      .then(messages => this.setState({ messages }))
+      .then(messages => this.setState({ messages, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 
@@ -55,6 +58,7 @@ class MessagesChat extends Component {
             </li>
           ))}
         </ul>
+        {this.state.loading && <Spinner />}
       </section>
     );
   }
