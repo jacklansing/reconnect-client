@@ -78,7 +78,7 @@ class PostsList extends Component {
               value={this.state.search}
               onChange={e => this.setSearch(e.target.value)}
             />
-            <label htmlFor="location">Location</label>
+            <Label htmlFor="location">Location</Label>
             <Select
               id="location"
               name="location"
