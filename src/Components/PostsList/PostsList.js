@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
-import { Button, Input, Select } from '../Utils/Utils';
+import { Button, Input, Select, Label } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -70,7 +70,7 @@ class PostsList extends Component {
         <section className="Search">
           <h2>Search Posts</h2>
           <form className="Search__form" onSubmit={this.handleSubmit}>
-            <label htmlFor="search">Search</label>
+            <Label htmlFor="search">Search</Label>
             <Input
               type="text"
               id="title"

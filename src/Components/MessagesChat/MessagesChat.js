@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input } from '../Utils/Utils';
+import { Button, Input, Label } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesChat.css';
 
@@ -43,7 +43,7 @@ class MessagesChat extends Component {
       <section className="Messages">
         <h2>New Reply</h2>
         <form className="MessagesChat__form" onSubmit={this.handleSubmit}>
-          <label htmlFor="content">Message: </label>
+          <Label htmlFor="content">Message: </Label>
           <Input type="text" id="content" name="content" />
           <Button type="submit">Reply</Button>
         </form>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Textarea, Input, Select } from '../Utils/Utils';
+import { Button, Textarea, Input, Select, Label } from '../Utils/Utils';
 import AuthApiService from '../../services/auth-api-service';
 import './EditPostForm.css';
 
@@ -43,7 +43,7 @@ class EditPostForm extends Component {
         <section className="Edit-Post">
           <h2>Update Post</h2>
           <form className="Edit-Post__form" onSubmit={this.handleSubmit}>
-            <label htmlFor="title">Title</label>
+            <Label htmlFor="title">Title</Label>
             <Input
               type="text"
               id="title"
@@ -51,14 +51,14 @@ class EditPostForm extends Component {
               value={this.state.title}
               onChange={e => this.setState({ title: e.target.value })}
             />
-            <label htmlFor="description">Description</label>
+            <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
               name="description"
               value={this.state.description}
               onChange={e => this.setState({ description: e.target.value })}
             />
-            <label htmlFor="device">Device Type</label>
+            <Label htmlFor="device">Device Type</Label>
             <Select
               name="device"
               id="device"
@@ -72,7 +72,7 @@ class EditPostForm extends Component {
               <option value="Windows">Windows</option>
               <option value="Macbook">Macbook</option>
             </Select>
-            <label htmlFor="condition">Condition</label>
+            <Label htmlFor="condition">Condition</Label>
             <Select
               name="condition"
               id="condition"
@@ -86,7 +86,7 @@ class EditPostForm extends Component {
               <option value="okay">Okay</option>
               <option value="damaged">Damaged</option>
             </Select>
-            <label htmlFor="location">Location</label>
+            <Label htmlFor="location">Location</Label>
             <Select
               id="location"
               name="location"
