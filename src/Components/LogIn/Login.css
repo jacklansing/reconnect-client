@@ -9,9 +9,3 @@
   justify-content: center;
   gap: 0.25rem;
 }
-
-.Log-In__form > label {
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem;
-}

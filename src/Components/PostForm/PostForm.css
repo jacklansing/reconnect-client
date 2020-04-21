@@ -1,9 +1,9 @@
-.New-Post {
+.Post {
   text-align: center;
   margin: 1rem;
 }
 
-.New-Post__form {
+.Post__form {
   background-color: white;
   border: 0.4px solid black;
   border-radius: 4px;
@@ -12,10 +12,5 @@
   grid-template-columns: fit-content;
   justify-content: center;
   gap: 0.25rem;
-}
-
-.New-Post__form > label {
-  width: 100%;
-  text-align: left;
-  padding: 0.75rem;
+  padding: 1rem;
 }

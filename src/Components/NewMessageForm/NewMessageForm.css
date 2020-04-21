@@ -14,12 +14,6 @@
   gap: 1rem 1.25rem;
 }
 
-.Message__form > label {
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem;
-}
-
 .Message__form > input[type='submit'],
 button {
   grid-column: -1 / 1;

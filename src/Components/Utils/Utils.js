@@ -22,3 +22,7 @@ export function Input({ className, ...props }) {
 export function Select({ className, ...props }) {
   return <select className={['Select', className].join(' ')} {...props} />;
 }
+
+export function Label({ className, ...props }) {
+  return <label className={['Label', className].join(' ')} {...props} />;
+}

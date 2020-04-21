@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
-import { Button, Input } from '../Utils/Utils';
+import { Button, Input, Label } from '../Utils/Utils';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
@@ -35,9 +35,9 @@ class Login extends Component {
           <h2>Log In</h2>
           <div role="alert">{error && <p>{error}</p>}</div>
           <form className="Log-In__form" onSubmit={this.handleSubmit}>
-            <label htmlFor="user_name">User Name</label>
+            <Label htmlFor="user_name">User Name</Label>
             <Input type="user_name" id="user_name" name="user_name" />
-            <label htmlFor="password">Password</label>
+            <Label htmlFor="password">Password</Label>
             <Input type="password" id="password" name="password" />
             <Button type="submit">Log In</Button>
           </form>
