@@ -23,3 +23,15 @@
   font-weight: 700;
   margin: 0;
 }
+
+@media screen and (min-width: 800px) {
+  .Messages h2 {
+    text-align: center;
+  }
+
+  .Messages__list {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

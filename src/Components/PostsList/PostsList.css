@@ -33,3 +33,21 @@ button {
   list-style-type: none;
   padding: 0;
 }
+
+@media screen and (min-width: 800px) {
+  .Results__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .Results__list li {
+    margin: 0;
+    justify-self: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .Results__list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

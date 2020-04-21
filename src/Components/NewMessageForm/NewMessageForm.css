@@ -9,12 +9,40 @@
 
 .Message__form {
   display: grid;
-  grid-template-columns: fit-content;
   justify-content: center;
   gap: 1rem 1.25rem;
+  background-color: white;
+  border: 0.4px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 3px 0px 0px lightgray;
 }
 
 .Message__form > input[type='submit'],
 button {
   grid-column: -1 / 1;
+}
+
+@media screen and (min-width: 800px) {
+  .Message > h2 {
+    text-align: center;
+  }
+
+  .Message__form {
+    width: 40%;
+    grid-template-columns: 10rem 1fr;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button.Button {
+    width: 50%;
+    justify-self: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  textarea.Textarea {
+    height: 30vh;
+  }
 }
