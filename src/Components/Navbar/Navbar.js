@@ -36,14 +36,18 @@ class Navbar extends Component {
       <>
         {this.loggedInLinks.map(link => {
           return (
-            <Link key={link.to} onClick={this.handleToggleMenu} to={link.to}>
-              {link.label}
-            </Link>
+            <li key={link.to}>
+              <Link onClick={this.handleToggleMenu} to={link.to}>
+                {link.label}
+              </Link>
+            </li>
           );
         })}
-        <Link onClick={this.handleLogout} to="/">
-          Sign Out
-        </Link>
+        <li>
+          <Link onClick={this.handleLogout} to="/">
+            Sign Out
+          </Link>
+        </li>
       </>
     );
   };
@@ -68,9 +72,11 @@ class Navbar extends Component {
       <>
         {this.loggedOutLinks.map(link => {
           return (
-            <Link key={link.to} to={link.to} onClick={this.handleToggleMenu}>
-              {link.label}
-            </Link>
+            <li key={link.to}>
+              <Link to={link.to} onClick={this.handleToggleMenu}>
+                {link.label}
+              </Link>
+            </li>
           );
         })}
       </>
@@ -94,15 +100,17 @@ class Navbar extends Component {
         role="navigation"
         className={`Navbar ${this.state.displayNav ? 'shown' : 'hidden'}`}
       >
-        <h1>Re-Connect</h1>
+        <h1 className="Navbar__header">Re-Connect</h1>
         <button onClick={this.handleToggleMenu} className="Hamburger">
           <span className="Hamburger__icon">
             {this.state.displayNav ? '-' : '+'}
           </span>
         </button>
-        {this.props.authStatus
-          ? this.makeLoggedInNavBar()
-          : this.makeLoggedOutNavBar()}
+        <ul className="Navbar__list">
+          {this.props.authStatus
+            ? this.makeLoggedInNavBar()
+            : this.makeLoggedOutNavBar()}
+        </ul>
       </nav>
     );
   }
