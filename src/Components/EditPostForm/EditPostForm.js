@@ -11,6 +11,7 @@ class EditPostForm extends Component {
         onSubmit={AuthApiService.updateDevice}
         redirectAfterSubmit={'/my-posts'}
         buttonText={'Update Post'}
+        formHeader={'Update Post'}
       />
     );
   }

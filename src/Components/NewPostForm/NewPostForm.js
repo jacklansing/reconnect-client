@@ -11,6 +11,7 @@ class NewPostForm extends Component {
         onSubmit={AuthApiService.postDevice}
         redirectAfterSubmit={'/my-posts'}
         buttonText={'New Post'}
+        formHeader={'New Post'}
       />
     );
   }

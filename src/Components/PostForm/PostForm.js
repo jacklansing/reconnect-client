@@ -59,7 +59,7 @@ class PostForm extends Component {
     return (
       <>
         <section className="Post">
-          <h2>Update Post</h2>
+          <h2>{this.props.formHeader}</h2>
           <form className="Post__form" onSubmit={this.handleSubmit}>
             <Label htmlFor="title">Title</Label>
             <Input
