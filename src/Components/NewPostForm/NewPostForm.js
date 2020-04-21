@@ -10,7 +10,7 @@ class NewPostForm extends Component {
         history={this.props.history}
         onSubmit={AuthApiService.postDevice}
         redirectAfterSubmit={'/my-posts'}
-        buttonText={'New Post'}
+        submitButtonText={'New Post'}
         formHeader={'New Post'}
       />
     );

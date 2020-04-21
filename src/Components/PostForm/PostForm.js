@@ -114,7 +114,7 @@ class PostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
-            <Button type="submit">{this.props.buttonText}</Button>
+            <Button type="submit">{this.props.submitButtonText}</Button>
           </form>
         </section>
       </>

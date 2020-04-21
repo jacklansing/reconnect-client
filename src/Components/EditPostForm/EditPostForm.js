@@ -10,7 +10,7 @@ class EditPostForm extends Component {
         history={this.props.history}
         onSubmit={AuthApiService.updateDevice}
         redirectAfterSubmit={'/my-posts'}
-        buttonText={'Update Post'}
+        submitButtonText={'Update Post'}
         formHeader={'Update Post'}
       />
     );
