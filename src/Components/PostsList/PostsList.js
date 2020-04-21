@@ -103,6 +103,9 @@ class PostsList extends Component {
         <section className="Results">
           <h3>Results</h3>
           {this.state.loading && <Spinner />}
+          {!this.state.loading && !this.state.posts.length && (
+            <div className="no-results">No posts found</div>
+          )}
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
           </div>
