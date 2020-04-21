@@ -1,9 +1,9 @@
-.New-Post {
+.Post {
   text-align: center;
   margin: 1rem;
 }
 
-.New-Post__form {
+.Post__form {
   background-color: white;
   border: 0.4px solid black;
   border-radius: 4px;
