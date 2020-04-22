@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
+import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList-Personal.css';
@@ -7,14 +8,16 @@ import './PostsList-Personal.css';
 class PostsListPersonal extends Component {
   state = {
     posts: [],
-    error: null
+    error: null,
+    loading: false
   };
 
   componentDidMount() {
+    this.setState({ loading: true });
     AuthApiService.getAllPostsByUser()
-      .then(posts => this.setState({ posts }))
+      .then(posts => this.setState({ posts, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 
@@ -51,6 +54,7 @@ class PostsListPersonal extends Component {
               />
             ))}
           </ul>
+          {this.state.loading && <Spinner />}
         </section>
       </>
     );
