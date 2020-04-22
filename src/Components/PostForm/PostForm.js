@@ -9,7 +9,7 @@ class PostForm extends Component {
     description: '',
     device: '',
     condition: '',
-    location: ''
+    location: 'Albany, NY'
   };
 
   static defaultProps = {
@@ -51,7 +51,7 @@ class PostForm extends Component {
       description: '',
       device: '',
       condition: '',
-      location: ''
+      location: 'Albany, NY'
     });
   };
 

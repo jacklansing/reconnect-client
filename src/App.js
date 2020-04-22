@@ -41,7 +41,10 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <PublicOnlyRoute path="/sign-up" component={SignUp} />
+          <PublicOnlyRoute
+            path="/sign-up"
+            component={() => <SignUp setAuthStatus={this.setAuthStatus} />}
+          />
           <PublicOnlyRoute
             path="/login"
             component={() => <Login setAuthStatus={this.setAuthStatus} />}

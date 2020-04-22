@@ -15,6 +15,15 @@
   animation: maxHeight 0.3s ease-in 0s 1 forwards;
 }
 
+.Navbar.hidden a {
+  opacity: 0;
+}
+
+.Navbar.shown a {
+  transition: all 0.3s ease-in;
+  opacity: 1;
+}
+
 @keyframes maxHeight {
   0% {
     max-height: 0px;
