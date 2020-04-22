@@ -72,6 +72,7 @@ class PostForm extends Component {
               type="text"
               id="title"
               name="title"
+              required
               value={this.state.title}
               onChange={e => this.setState({ title: e.target.value })}
             />
@@ -79,6 +80,7 @@ class PostForm extends Component {
             <Textarea
               id="description"
               name="description"
+              required
               value={this.state.description}
               onChange={e => this.setState({ description: e.target.value })}
             />
