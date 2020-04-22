@@ -3,6 +3,7 @@ import PublicOnlyRoute from './Components/Utils/PublicOnlyRoute';
 import PrivateOnlyRoute from './Components/Utils/PrivateRoute';
 import Navbar from './Components/Navbar/Navbar';
 import Landing from './Components/Landing/Landing';
+import AuthLanding from './Components/AuthLanding/AuthLanding';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/LogIn/Login';
 import PostsList from './Components/PostsList/PostsList';
@@ -40,7 +41,13 @@ class App extends Component {
           setAuthStatus={this.setAuthStatus}
         />
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route
+            exact
+            path="/"
+            component={() =>
+              this.state.hasAuth ? <AuthLanding /> : <Landing />
+            }
+          />
           <PublicOnlyRoute
             path="/sign-up"
             component={() => <SignUp setAuthStatus={this.setAuthStatus} />}

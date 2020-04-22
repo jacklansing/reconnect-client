@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Button, DeleteButton, Textarea, Label } from '../Utils/Utils';
+import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import AuthApiService from '../../services/auth-api-service';
 import './NewMessageForm.css';
 
 class NewMessageForm extends Component {
   state = {
-    error: null
+    error: null,
+    loading: false
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const recipient_id = this.props.location.state.author_id;
     const { content } = e.target;
+    this.setState({ loading: true });
     AuthApiService.postMessageThread(recipient_id)
       .then(thread =>
         AuthApiService.postNewMessage({
@@ -21,7 +24,7 @@ class NewMessageForm extends Component {
       )
       .then(() => this.props.history.push('/messages'))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   };
 
@@ -37,7 +40,9 @@ class NewMessageForm extends Component {
         <form className="Message__form" onSubmit={this.handleSubmit}>
           <Label htmlFor="content">Message:</Label>
           <Textarea id="content" name="content"></Textarea>
-          <Button type="submit">Send Message</Button>
+          <Button type="submit">
+            {this.state.loading ? <ButtonSpinner /> : 'Send Message'}
+          </Button>
           <DeleteButton onClick={this.handleCancel} className="cancel">
             Cancel
           </DeleteButton>
