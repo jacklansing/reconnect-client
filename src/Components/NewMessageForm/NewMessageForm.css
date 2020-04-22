@@ -10,7 +10,6 @@
 .Message__form {
   display: grid;
   justify-content: center;
-  gap: 1rem 1.25rem;
   background-color: white;
   border: 0.4px solid black;
   border-radius: 4px;
@@ -32,8 +31,10 @@
   }
 
   .Message__form button.Button {
-    width: 50%;
-    justify-self: center;
+    width: 70%;
+    max-width: 50%;
+    justify-self: left;
+    grid-column: 2 / 3;
   }
 }
 
