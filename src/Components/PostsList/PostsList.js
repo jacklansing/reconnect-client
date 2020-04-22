@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
 import { Button, Input, Select, Label } from '../Utils/Utils';
+import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 
 import './PostsList.css';
@@ -9,15 +10,17 @@ class PostsList extends Component {
   state = {
     posts: [],
     error: null,
+    loading: false,
     search: '',
     location: 'Albany, NY'
   };
 
   componentDidMount() {
+    this.setState({ loading: true });
     AuthApiService.getAllPosts()
-      .then(posts => this.setState({ posts }))
+      .then(posts => this.setState({ posts, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 
@@ -43,9 +46,9 @@ class PostsList extends Component {
     }
 
     const queryParams = params.join('&');
-
+    this.setState({ loading: true });
     AuthApiService.getSearchPosts(queryParams)
-      .then(posts => this.setState({ posts }))
+      .then(posts => this.setState({ posts, loading: false }))
       .catch(res => {
         this.setState({ error: res.error });
       });
@@ -96,6 +99,10 @@ class PostsList extends Component {
         </section>
         <section className="Results">
           <h3>Results</h3>
+          {this.state.loading && <Spinner />}
+          {!this.state.loading && !this.state.posts.length && (
+            <div className="no-results">No posts found</div>
+          )}
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
           </div>

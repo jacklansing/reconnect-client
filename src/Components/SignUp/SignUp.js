@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 import { Button, Input, Select, Label } from '../Utils/Utils';
+import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import './SignUp.css';
 
 class SignUp extends Component {
-  state = { error: null };
+  state = { error: null, loading: false };
 
   handleSubmit = e => {
     e.preventDefault();
     const { user_name, display_name, password, type } = e.target;
-    this.setState({ error: null });
+    this.setState({ error: null, loading: true });
 
     AuthApiService.postUser({
       user_name: user_name.value,
@@ -17,15 +19,14 @@ class SignUp extends Component {
       password: password.value,
       user_type: type.value
     })
-      .then(user => {
-        user_name.value = '';
-        display_name.value = '';
-        password.value = '';
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken);
+        this.props.setAuthStatus(true);
+        this.props.history.push('/');
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
-    this.props.history.push('/');
   };
 
   render() {
@@ -47,7 +48,9 @@ class SignUp extends Component {
               <option value="Donor">Donor</option>
               <option value="Seeking">Seeking Tech</option>
             </Select>
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">
+              {this.state.loading ? <ButtonSpinner /> : 'Sign Up'}
+            </Button>
           </form>
         </section>
       </>

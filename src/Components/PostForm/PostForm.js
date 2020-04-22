@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Button, Textarea, Input, Select, Label } from '../Utils/Utils';
+import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import './PostForm.css';
 
 class PostForm extends Component {
   state = {
     error: null,
+    loading: false,
     title: '',
     description: '',
-    device: '',
-    condition: '',
-    location: ''
+    device: 'Android',
+    condition: 'good',
+    location: 'Albany, NY'
   };
 
   static defaultProps = {
@@ -27,7 +29,7 @@ class PostForm extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-
+    this.setState({ loading: true });
     const deviceToPost = {
       id: this.state.post_id,
       title: this.state.title,
@@ -38,10 +40,14 @@ class PostForm extends Component {
     };
     try {
       await this.props.onSubmit(deviceToPost);
+      this.setState({ loading: false });
       this.resetFields();
       this.props.history.push(this.props.redirectAfterSubmit);
     } catch (e) {
-      this.setState({ error: e });
+      this.setState({
+        error: `There was an error with your request. Please try again later.`,
+        loading: false
+      });
     }
   };
 
@@ -49,9 +55,9 @@ class PostForm extends Component {
     this.setState({
       title: '',
       description: '',
-      device: '',
-      condition: '',
-      location: ''
+      device: 'Android',
+      condition: 'good',
+      location: 'Albany, NY'
     });
   };
 
@@ -66,6 +72,7 @@ class PostForm extends Component {
               type="text"
               id="title"
               name="title"
+              required
               value={this.state.title}
               onChange={e => this.setState({ title: e.target.value })}
             />
@@ -73,6 +80,7 @@ class PostForm extends Component {
             <Textarea
               id="description"
               name="description"
+              required
               value={this.state.description}
               onChange={e => this.setState({ description: e.target.value })}
             />
@@ -114,7 +122,13 @@ class PostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
-            <Button type="submit">{this.props.submitButtonText}</Button>
+            <Button type="submit">
+              {this.state.loading ? (
+                <ButtonSpinner />
+              ) : (
+                this.props.submitButtonText
+              )}
+            </Button>
           </form>
         </section>
       </>

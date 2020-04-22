@@ -28,6 +28,13 @@ button {
   padding: 0;
 }
 
+.no-results,
+.alert {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
 @media screen and (min-width: 800px) {
   .Search__form label.Label {
     text-align: left;

@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { Button, Input, Label } from '../Utils/Utils';
+import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
-  state = { error: null };
+  state = { error: null, loading: false };
 
   handleSubmit = e => {
     e.preventDefault();
     const { user_name, password } = e.target;
-
+    this.setState({ error: null, loading: true });
     AuthApiService.postLogin({
       user_name: user_name.value,
       password: password.value
@@ -23,7 +24,7 @@ class Login extends Component {
         this.props.setAuthStatus(true);
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   };
 
@@ -39,7 +40,9 @@ class Login extends Component {
             <Input type="user_name" id="user_name" name="user_name" />
             <Label htmlFor="password">Password</Label>
             <Input type="password" id="password" name="password" />
-            <Button type="submit">Log In</Button>
+            <Button type="submit">
+              {this.state.loading ? <ButtonSpinner /> : 'Log In'}
+            </Button>
           </form>
           <p>Don't have an account yet?</p>
           <p>

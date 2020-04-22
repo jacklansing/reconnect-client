@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import { Button, Input, Label } from '../Utils/Utils';
+import Spinner from '../Utils/Spinner/Spinner';
+import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesChat.css';
 
 class MessagesChat extends Component {
   state = {
     messages: [],
+    loading: false,
     error: null
   };
 
   componentDidMount() {
+    this.setState({ loading: true });
     const thread_id = this.props.location.state;
     AuthApiService.getMessageThreadChats(thread_id)
-      .then(messages => this.setState({ messages }))
+      .then(messages => this.setState({ messages, loading: false }))
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   }
 
@@ -22,6 +26,7 @@ class MessagesChat extends Component {
     e.preventDefault();
     const { content } = e.target;
     const thread_id = this.props.location.state;
+    this.setState({ loading: true });
     AuthApiService.postNewMessage({
       content: content.value,
       thread_id: thread_id
@@ -31,9 +36,10 @@ class MessagesChat extends Component {
           messages: [message, ...this.state.messages]
         });
         content.value = '';
+        this.setState({ loading: false });
       })
       .catch(res => {
-        this.setState({ error: res.error });
+        this.setState({ error: res.error, loading: false });
       });
   };
 
@@ -45,7 +51,9 @@ class MessagesChat extends Component {
         <form className="MessagesChat__form" onSubmit={this.handleSubmit}>
           <Label htmlFor="content">Message: </Label>
           <Input type="text" id="content" name="content" />
-          <Button type="submit">Reply</Button>
+          <Button type="submit">
+            {this.state.loading ? <ButtonSpinner /> : 'Reply'}
+          </Button>
         </form>
         <ul className="MessagesChat__list">
           {messages.map(message => (
@@ -55,6 +63,7 @@ class MessagesChat extends Component {
             </li>
           ))}
         </ul>
+        {this.state.loading && <Spinner />}
       </section>
     );
   }

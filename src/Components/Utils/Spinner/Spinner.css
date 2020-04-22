@@ -1,0 +1,25 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-color: transparent #13315c transparent #8da9c4;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-color: #8da9c4 transparent #13315c transparent;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: transparent #13315c transparent #8da9c4;
+  }
+}
+
+.spinner {
+  margin-left: auto;
+  margin-right: auto;
+  border: 8px solid #13315c;
+  border-color: #8da9c4 transparent #13315c transparent;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  animation: 2s spin linear infinite;
+}
