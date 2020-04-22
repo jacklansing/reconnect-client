@@ -37,7 +37,7 @@ class Navbar extends Component {
         {this.loggedInLinks.map(link => {
           return (
             <li key={link.to}>
-              <Link onClick={this.handleToggleMenu} to={link.to}>
+              <Link onClick={this.handleCloseMenu} to={link.to}>
                 {link.label}
               </Link>
             </li>
@@ -73,7 +73,7 @@ class Navbar extends Component {
         {this.loggedOutLinks.map(link => {
           return (
             <li key={link.to}>
-              <Link to={link.to} onClick={this.handleToggleMenu}>
+              <Link to={link.to} onClick={this.handleCloseMenu}>
                 {link.label}
               </Link>
             </li>
@@ -91,6 +91,12 @@ class Navbar extends Component {
   handleToggleMenu = () => {
     this.setState({
       displayNav: !this.state.displayNav
+    });
+  };
+
+  handleCloseMenu = () => {
+    this.setState({
+      displayNav: false
     });
   };
 
