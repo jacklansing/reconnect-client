@@ -15,11 +15,7 @@
   border: 0.4px solid black;
   border-radius: 4px;
   box-shadow: 2px 3px 0px 0px lightgray;
-}
-
-.Message__form > input[type='submit'],
-button {
-  grid-column: -1 / 1;
+  padding: 1.5rem;
 }
 
 @media screen and (min-width: 800px) {
