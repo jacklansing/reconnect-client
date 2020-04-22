@@ -5,7 +5,7 @@ const AuthLanding = props => {
   return (
     <>
       <section className="Auth-Landing">
-        <h2>Welcome to Re-connect!</h2>
+        <h2>Welcome to Re-Connect!</h2>
         <p>
           Looking to post a new Device to donate?{' '}
           <Link to="/new-post">Click here to get started.</Link>
