@@ -76,6 +76,9 @@
   .Navbar__list {
     height: auto !important;
   }
+  .Navbar__list a {
+    opacity: 1 !important;
+  }
 
   .Navbar__header {
     line-height: 5rem;
