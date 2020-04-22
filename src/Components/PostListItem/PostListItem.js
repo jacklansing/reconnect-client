@@ -51,7 +51,7 @@ class PostListItem extends Component {
         </p>
         <p className="post-condition">
           <span>Condition: </span>
-          {condition[0].toUpperCase() + condition.slice(1)}
+          {condition ? condition[0].toUpperCase() + condition.slice(1) : null}
         </p>
         <p className="post-location">
           <span>Location:</span> {location}
