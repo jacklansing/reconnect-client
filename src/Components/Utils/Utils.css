@@ -16,6 +16,10 @@
   -moz-appearance: none;
 }
 
+form > .Button {
+  margin-top: 2rem;
+}
+
 .Button:hover,
 .Button:focus {
   background: #0053ba;
