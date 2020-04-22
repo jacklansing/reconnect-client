@@ -40,10 +40,6 @@ button {
     text-align: left;
   }
 
-  .Search__form button.Button {
-    width: 70%;
-  }
-
   .Results__list {
     display: grid;
     grid-template-columns: 1fr 1fr;

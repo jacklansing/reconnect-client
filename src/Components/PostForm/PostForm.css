@@ -24,11 +24,12 @@
     width: 60%;
   }
 
-  label.Label {
+  .Post__form label.Label {
     text-align: center;
   }
 
-  button.Button {
+  .Post__form button.Button {
+    grid-column: -1 / 1;
     width: 50%;
     justify-self: center;
   }

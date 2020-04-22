@@ -31,7 +31,7 @@
     margin-right: auto;
   }
 
-  button.Button {
+  .Message__form button.Button {
     width: 50%;
     justify-self: center;
   }
