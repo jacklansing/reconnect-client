@@ -35,6 +35,13 @@ class MessagesList extends Component {
         <section className="Messages">
           <h2>Conversations</h2>
           {error && <Alert>{error}</Alert>}
+          {!threads.length && (
+            <p className="empty-convos-msg">
+              You currently have no conversations. <br /> Start a new one by
+              searching through <Link to="/posts">Posts</Link> and clicking on
+              the "Send Message" link from a post you're interested in.
+            </p>
+          )}
           <ul className="Messages__list">
             {threads.map(thread => (
               <li key={thread.thread_id}>
