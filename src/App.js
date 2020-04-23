@@ -13,6 +13,7 @@ import MessagesList from './Components/MessagesList/MessagesList';
 import MessagesChat from './Components/MessagesChat/MessagesChat';
 import PostListPersonal from './Components/PostsList-Personal/PostsList-Personal';
 import EditPostForm from './Components/EditPostForm/EditPostForm';
+import PageNotFound from './Components/Utils/PageNotFound/PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import TokenService from './services/token-service';
 
@@ -63,6 +64,7 @@ class App extends Component {
           <PrivateOnlyRoute exact path="/messages" component={MessagesList} />
           <PrivateOnlyRoute path="/messages/chat" component={MessagesChat} />
           <PrivateOnlyRoute path="/edit-post" component={EditPostForm} />
+          <Route path="/" component={PageNotFound} />
         </Switch>
       </div>
     );
