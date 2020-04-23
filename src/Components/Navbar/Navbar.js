@@ -107,7 +107,15 @@ class Navbar extends Component {
         className={`Navbar ${this.state.displayNav ? 'shown' : 'hidden'}`}
       >
         <h1 className="Navbar__header">Re-Connect</h1>
-        <button onClick={this.handleToggleMenu} className="Hamburger">
+        <button
+          onClick={this.handleToggleMenu}
+          className="Hamburger"
+          aria-label={
+            this.state.displayNav
+              ? 'Close the navigation menu'
+              : 'Open the navigation menu'
+          }
+        >
           <span className="Hamburger__icon">
             {this.state.displayNav ? '-' : '+'}
           </span>
