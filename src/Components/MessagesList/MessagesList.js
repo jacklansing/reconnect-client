@@ -40,6 +40,9 @@ class MessagesList extends Component {
               You currently have no conversations. <br /> Start a new one by
               searching through <Link to="/posts">Posts</Link> and clicking on
               the "Send Message" link from a post you're interested in.
+              <br />
+              If you have posted items to Donate, you'll also see any messages
+              sent to you here.
             </p>
           )}
           <ul className="Messages__list">
