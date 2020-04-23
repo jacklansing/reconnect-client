@@ -31,14 +31,14 @@ class PostsListPersonal extends Component {
   };
 
   render() {
-    const { posts } = this.state;
+    const { posts, loading } = this.state;
     return (
       <>
         <section className="Results-Personal">
           <h2>My Posts</h2>
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
-            {!this.state.posts.length && (
+            {!posts.length && !loading && (
               <p className="empty-posts-msg">
                 Could not find any posts. <br />
                 <Link to="/new-post">Click Here</Link> to make a new post.
@@ -61,7 +61,7 @@ class PostsListPersonal extends Component {
               />
             ))}
           </ul>
-          {this.state.loading && <Spinner />}
+          {loading && <Spinner />}
         </section>
       </>
     );

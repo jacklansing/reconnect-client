@@ -29,13 +29,13 @@ class MessagesList extends Component {
   }
 
   render() {
-    const { threads, error } = this.state;
+    const { threads, error, loading } = this.state;
     return (
       <>
         <section className="Messages">
           <h2>Conversations</h2>
           {error && <Alert>{error}</Alert>}
-          {!threads.length && (
+          {!threads.length && !loading && (
             <p className="empty-convos-msg">
               You currently have no conversations. <br /> Start a new one by
               searching through <Link to="/posts">Posts</Link> and clicking on
@@ -62,7 +62,7 @@ class MessagesList extends Component {
               </li>
             ))}
           </ul>
-          {this.state.loading && <Spinner />}
+          {loading && <Spinner />}
         </section>
       </>
     );
