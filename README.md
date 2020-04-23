@@ -27,6 +27,6 @@ Password: Password123!
 
 You can then search through Posts and message those users, or head over to the Messages section to check out any existing conversations!
 
-![002-search-posts](https://user-images.githubusercontent.com/58494268/80142866-e0f65b00-8579-11ea-9a40-a0d697e2dc0b.PNG)
-![005-track-convos](https://user-images.githubusercontent.com/58494268/80142402-12baf200-8579-11ea-8743-372903974c44.PNG)\
-![006-plan-and-organize](https://user-images.githubusercontent.com/58494268/80142403-12baf200-8579-11ea-9095-6fd0996e3e9c.PNG)
+![first app preview image](https://user-images.githubusercontent.com/58494268/80147961-4f3f1b80-8582-11ea-8a41-a5b33f15ccfb.png)
+
+![second app preview image](https://user-images.githubusercontent.com/58494268/80147911-3afb1e80-8582-11ea-8b68-825149a9528d.png)
