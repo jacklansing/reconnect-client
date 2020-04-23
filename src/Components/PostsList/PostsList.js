@@ -73,7 +73,7 @@ class PostsList extends Component {
         <section className="Search">
           <h2>Search Posts</h2>
           <form className="Search__form" onSubmit={this.handleSubmit}>
-            <Label htmlFor="search">Search</Label>
+            <Label htmlFor="title">Search</Label>
             <Input
               type="text"
               id="title"
