@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Label } from '../Utils/Utils';
+import { Button, Input, Label, Alert } from '../Utils/Utils';
 import Spinner from '../Utils/Spinner/Spinner';
 import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import AuthApiService from '../../services/auth-api-service';
@@ -44,13 +44,14 @@ class MessagesChat extends Component {
   };
 
   render() {
-    const { messages } = this.state;
+    const { messages, error } = this.state;
     return (
       <section className="Messages">
         <h2>New Reply</h2>
         <form className="MessagesChat__form" onSubmit={this.handleSubmit}>
           <Label htmlFor="content">Message: </Label>
-          <Input type="text" id="content" name="content" />
+          <Input type="text" id="content" name="content" required />
+          {error && <Alert>{error}</Alert>}
           <Button type="submit">
             {this.state.loading ? <ButtonSpinner /> : 'Reply'}
           </Button>

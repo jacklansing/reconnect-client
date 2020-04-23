@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Textarea, Input, Select, Label } from '../Utils/Utils';
+import { Button, Textarea, Input, Select, Label, Alert } from '../Utils/Utils';
 import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import './PostForm.css';
 
@@ -20,6 +20,15 @@ class PostForm extends Component {
   };
 
   componentDidMount() {
+    // If the component reloads on the edit post form, we redirect so that
+    // an empty update is not accidentally submitted.
+    if (
+      this.props.location.pathname === '/edit-post' &&
+      !this.props.location.postProps
+    ) {
+      this.props.history.push('/posts');
+    }
+
     if (this.props.location.postProps) {
       this.setState({
         ...this.props.location.postProps
@@ -62,6 +71,7 @@ class PostForm extends Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <>
         <section className="Post">
@@ -122,6 +132,7 @@ class PostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
+            {error && <Alert>{error}</Alert>}
             <Button type="submit">
               {this.state.loading ? (
                 <ButtonSpinner />

@@ -1,5 +1,6 @@
 .Results__list-item {
   border: 0.4px solid black;
+  border-radius: 4px;
   background-color: white;
   box-shadow: 2px 3px 0px 0px lightgray;
   padding: 1rem;

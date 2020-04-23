@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostListItem from '../PostListItem/PostListItem';
-import { Button, Input, Select, Label } from '../Utils/Utils';
+import { Button, Input, Select, Label, Alert } from '../Utils/Utils';
 import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 
@@ -67,7 +67,7 @@ class PostsList extends Component {
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts, error } = this.state;
     return (
       <>
         <section className="Search">
@@ -94,6 +94,7 @@ class PostsList extends Component {
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
+            {error && <Alert>{error}</Alert>}
             <Button type="submit">Search Now</Button>
           </form>
         </section>
@@ -103,9 +104,6 @@ class PostsList extends Component {
           {!this.state.loading && !this.state.posts.length && (
             <div className="no-results">No posts found</div>
           )}
-          <div role="alert">
-            {this.state.error && <p>{this.state.error}</p>}
-          </div>
           <ul className="Results__list">
             {posts.map(post => (
               <PostListItem

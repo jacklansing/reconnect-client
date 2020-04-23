@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Alert } from '../Utils/Utils';
 import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesList.css';
@@ -28,11 +29,12 @@ class MessagesList extends Component {
   }
 
   render() {
-    const { threads } = this.state;
+    const { threads, error } = this.state;
     return (
       <>
         <section className="Messages">
           <h2>Conversations</h2>
+          {error && <Alert>{error}</Alert>}
           <ul className="Messages__list">
             {threads.map(thread => (
               <li key={thread.thread_id}>
