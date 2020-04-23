@@ -56,14 +56,18 @@ class PostListItem extends Component {
         <p className="post-location">
           <span>Location:</span> {location}
         </p>
-        <Link
-          to={{
-            pathname: '/new-message',
-            state: { author_id }
-          }}
-        >
-          Send Message
-        </Link>
+        {!userCanEdit && (
+          <p>
+            <Link
+              to={{
+                pathname: '/new-message',
+                state: { author_id }
+              }}
+            >
+              Send Message
+            </Link>
+          </p>
+        )}
         <p>
           {userCanEdit && (
             <Link
