@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, DeleteButton, Textarea, Label } from '../Utils/Utils';
+import { Button, DeleteButton, Textarea, Label, Alert } from '../Utils/Utils';
 import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import AuthApiService from '../../services/auth-api-service';
 import './NewMessageForm.css';
@@ -34,12 +34,14 @@ class NewMessageForm extends Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <section className="Message">
         <h2>Start a new thread</h2>
         <form className="Message__form" onSubmit={this.handleSubmit}>
           <Label htmlFor="content">Message:</Label>
-          <Textarea id="content" name="content"></Textarea>
+          <Textarea id="content" name="content" required></Textarea>
+          {error && <Alert>{error}</Alert>}
           <Button type="submit">
             {this.state.loading ? <ButtonSpinner /> : 'Send Message'}
           </Button>

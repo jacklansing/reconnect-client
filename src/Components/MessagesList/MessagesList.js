@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Alert } from '../Utils/Utils';
 import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
 import './MessagesList.css';
@@ -28,11 +29,19 @@ class MessagesList extends Component {
   }
 
   render() {
-    const { threads } = this.state;
+    const { threads, error } = this.state;
     return (
       <>
         <section className="Messages">
           <h2>Conversations</h2>
+          {error && <Alert>{error}</Alert>}
+          {!threads.length && (
+            <p className="empty-convos-msg">
+              You currently have no conversations. <br /> Start a new one by
+              searching through <Link to="/posts">Posts</Link> and clicking on
+              the "Send Message" link from a post you're interested in.
+            </p>
+          )}
           <ul className="Messages__list">
             {threads.map(thread => (
               <li key={thread.thread_id}>

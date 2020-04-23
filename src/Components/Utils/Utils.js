@@ -26,3 +26,9 @@ export function Select({ className, ...props }) {
 export function Label({ className, ...props }) {
   return <label className={['Label', className].join(' ')} {...props} />;
 }
+
+export function Alert({ className, ...props }) {
+  return (
+    <div role="alert" className={['Alert', className].join(' ')} {...props} />
+  );
+}

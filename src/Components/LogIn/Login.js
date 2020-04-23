@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
-import { Button, Input, Label } from '../Utils/Utils';
+import { Button, Input, Label, Alert } from '../Utils/Utils';
 import ButtonSpinner from '../Utils/ButtonSpinner/ButtonSpinner';
 import { Link } from 'react-router-dom';
 import './Login.css';
@@ -34,12 +34,12 @@ class Login extends Component {
       <>
         <section className="Log-In">
           <h2>Log In</h2>
-          <div role="alert">{error && <p>{error}</p>}</div>
           <form className="Log-In__form" onSubmit={this.handleSubmit}>
             <Label htmlFor="user_name">User Name</Label>
-            <Input type="user_name" id="user_name" name="user_name" />
+            <Input type="user_name" id="user_name" name="user_name" required />
             <Label htmlFor="password">Password</Label>
-            <Input type="password" id="password" name="password" />
+            <Input type="password" id="password" name="password" required />
+            {error && <Alert>{error}</Alert>}
             <Button type="submit">
               {this.state.loading ? <ButtonSpinner /> : 'Log In'}
             </Button>
