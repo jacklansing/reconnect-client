@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PostListItem from '../PostListItem/PostListItem';
 import Spinner from '../Utils/Spinner/Spinner';
 import AuthApiService from '../../services/auth-api-service';
@@ -37,6 +38,12 @@ class PostsListPersonal extends Component {
           <h2>My Posts</h2>
           <div role="alert">
             {this.state.error && <p>{this.state.error}</p>}
+            {!this.state.posts.length && (
+              <p className="empty-posts-msg">
+                Could not find any posts. <br />
+                <Link to="/new-post">Click Here</Link> to make a new post.
+              </p>
+            )}
           </div>
           <ul className="Results-Personal__list">
             {posts.map(post => (
