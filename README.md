@@ -4,7 +4,11 @@ Re-Connect is an app dedicated to helping people part ways with their old mobile
 
 See it Live at: [https://reconnect-app.now.sh](https://reconnect-app.now.sh)
 
-## Technologies used
+## How to use
+
+Start by signing up or logging in.
+
+### Technologies used
 
 - `React` front-end
 - `Node.js` server
