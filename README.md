@@ -22,7 +22,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Start by signing up or logging in. Feel free to use the Demo account listed on the
 landing page.
 
-User Name: username
+User Name: username\
 Password: Password123!
 
 You can then search through Posts and message those users, or head over to the Messages section to check out any existing conversations!

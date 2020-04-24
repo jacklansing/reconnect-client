@@ -6,3 +6,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.Info__demo {
+  line-height: 2rem;
+}
+
+.Info__demo span {
+  font-weight: 700;
+}

@@ -11,6 +11,13 @@ const Landing = props => {
         </p>
         <p>Get started by signing up today.</p>
         <Link to="/sign-up">Sign Up Now</Link>
+        <p className="Info__demo">
+          Or log in to the Demo Account to try it out.
+          <br />
+          <span>User Name:</span> username (case sensitive)
+          <br />
+          <span>Password:</span> Password123! (case sensitive)
+        </p>
       </section>
     </>
   );
