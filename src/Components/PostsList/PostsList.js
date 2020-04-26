@@ -105,21 +105,23 @@ class PostsList extends Component {
             <div className="no-results">No posts found</div>
           )}
           <ul className="Results__list">
-            {posts.map(post => (
-              <PostListItem
-                key={post.id}
-                post_id={post.id}
-                author_id={post.user_id}
-                author_name={post.post_author}
-                title={post.title}
-                description={post.description}
-                device={post.device}
-                condition={post.condition}
-                location={post.location}
-                userCanEdit={post.userCanEdit}
-                deletePost={this.deletePost}
-              />
-            ))}
+            {posts.map(post =>
+              post.userCanEdit ? null : (
+                <PostListItem
+                  key={post.id}
+                  post_id={post.id}
+                  author_id={post.user_id}
+                  author_name={post.post_author}
+                  title={post.title}
+                  description={post.description}
+                  device={post.device}
+                  condition={post.condition}
+                  location={post.location}
+                  userCanEdit={post.userCanEdit}
+                  deletePost={this.deletePost}
+                />
+              )
+            )}
           </ul>
         </section>
       </>

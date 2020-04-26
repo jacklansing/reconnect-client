@@ -1,10 +1,11 @@
 .Info {
-  height: 300px;
-  max-width: 80%;
   text-align: center;
-  padding: 0.5rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.Info__intro {
+  padding: 1rem;
 }
 
 .Info__demo {
@@ -13,4 +14,42 @@
 
 .Info__demo span {
   font-weight: 700;
+}
+
+.Info__blurb {
+  background-color: #13315c;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+}
+
+.Info__blurb a {
+  color: white;
+}
+
+.Info__blurb-title {
+  background-color: #13315c;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+}
+
+.Info__blurb:nth-of-type(odd) {
+  background-color: #2174c2;
+}
+
+.Info__blurb:last-of-type {
+  padding-bottom: 3rem;
+}
+
+.Info__image {
+  max-width: 80%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 800px) {
+  .Info__image {
+    width: 400px;
+  }
 }
