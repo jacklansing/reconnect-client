@@ -118,7 +118,6 @@ class PostsList extends Component {
                   condition={post.condition}
                   location={post.location}
                   userCanEdit={post.userCanEdit}
-                  image_url={post.image_url}
                   deletePost={this.deletePost}
                 />
               )
