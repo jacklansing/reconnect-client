@@ -32,7 +32,8 @@ class PostListItem extends Component {
       device,
       condition,
       location,
-      userCanEdit
+      userCanEdit,
+      image_url
     } = this.props;
 
     const { error } = this.state;
@@ -45,6 +46,13 @@ class PostListItem extends Component {
             <span>posted by</span> {author_name}
           </p>
         )}
+        {this.props.image_url ? (
+          <img
+            className="post-image"
+            src={this.props.image_url}
+            alt="device posted by user"
+          />
+        ) : null}
         <p className="post-description">{description}</p>
         <p className="post-device">
           <span>Device Type:</span> {device}
@@ -80,7 +88,8 @@ class PostListItem extends Component {
                   description,
                   device,
                   condition,
-                  location
+                  location,
+                  image_url
                 }
               }}
             >
