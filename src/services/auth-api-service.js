@@ -24,26 +24,26 @@ const AuthApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  // Using multer to handle form data server-side, so no content-type is specified
   postDevice(postContent) {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
         authorization: `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify(postContent)
+      body: postContent
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+  // Using multer to handle form data server-side, so no content-type is specified
   updateDevice(updatedPost) {
     return fetch(`${config.API_ENDPOINT}/posts`, {
       method: 'PATCH',
       headers: {
-        'content-type': 'application/json',
         authorization: `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify(updatedPost)
+      body: updatedPost
     });
   },
   getAllPosts() {

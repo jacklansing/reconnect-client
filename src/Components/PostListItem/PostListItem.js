@@ -32,7 +32,8 @@ class PostListItem extends Component {
       device,
       condition,
       location,
-      userCanEdit
+      userCanEdit,
+      image_url
     } = this.props;
 
     const { error } = this.state;
@@ -45,6 +46,16 @@ class PostListItem extends Component {
             <span>posted by</span> {author_name}
           </p>
         )}
+
+        <img
+          className="post-image"
+          src={
+            this.props.image_url
+              ? this.props.image_url
+              : 'https://res.cloudinary.com/re-connect/image/upload/v1588014885/no-img_rhgcbm.png'
+          }
+          alt="device posted by user"
+        />
         <p className="post-description">{description}</p>
         <p className="post-device">
           <span>Device Type:</span> {device}
@@ -80,7 +91,8 @@ class PostListItem extends Component {
                   description,
                   device,
                   condition,
-                  location
+                  location,
+                  image_url
                 }
               }}
             >

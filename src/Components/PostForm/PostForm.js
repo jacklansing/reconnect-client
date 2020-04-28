@@ -11,7 +11,10 @@ class PostForm extends Component {
     description: '',
     device: 'Android',
     condition: 'good',
-    location: 'Albany, NY'
+    location: 'Albany, NY',
+    file: '',
+    image_url: '',
+    previous_image_url: null
   };
 
   static defaultProps = {
@@ -31,7 +34,8 @@ class PostForm extends Component {
 
     if (this.props.location.postProps) {
       this.setState({
-        ...this.props.location.postProps
+        ...this.props.location.postProps,
+        previous_image_url: this.props.location.postProps.image_url
       });
     }
   }
@@ -39,16 +43,22 @@ class PostForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.setState({ loading: true });
-    const deviceToPost = {
-      id: this.state.post_id,
-      title: this.state.title,
-      description: this.state.description,
-      device: this.state.device,
-      condition: this.state.condition,
-      location: this.state.location
-    };
+
+    let formData = new FormData();
+    formData.append('id', this.state.post_id);
+    formData.append('title', this.state.title);
+    formData.append('description', this.state.description);
+    formData.append('device', this.state.device);
+    formData.append('condition', this.state.condition);
+    formData.append('location', this.state.location);
+    formData.append('image', this.state.file);
+
+    if (this.state.previous_image_url) {
+      formData.append('previous_image_url', this.state.previous_image_url);
+    }
+
     try {
-      await this.props.onSubmit(deviceToPost);
+      await this.props.onSubmit(formData);
       this.setState({ loading: false });
       this.resetFields();
       this.props.history.push(this.props.redirectAfterSubmit);
@@ -70,8 +80,27 @@ class PostForm extends Component {
     });
   };
 
+  handleImageChange = e => {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        image_url: reader.result
+      });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   render() {
     const { error } = this.state;
+    const { image_url } = this.state;
     return (
       <>
         <section className="Post">
@@ -86,6 +115,7 @@ class PostForm extends Component {
               value={this.state.title}
               onChange={e => this.setState({ title: e.target.value })}
             />
+
             <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
@@ -132,6 +162,20 @@ class PostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
+            <Label htmlFor="image">Image</Label>
+            <Input
+              type="file"
+              id="image"
+              accept="image/jpeg, image/png"
+              onChange={this.handleImageChange}
+            />
+            {image_url && (
+              <img
+                src={image_url}
+                alt="upload preview"
+                className="upload-preview"
+              />
+            )}
             {error && <Alert>{error}</Alert>}
             <Button type="submit">
               {this.state.loading ? (
