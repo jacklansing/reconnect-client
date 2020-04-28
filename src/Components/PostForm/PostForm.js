@@ -93,7 +93,9 @@ class PostForm extends Component {
       });
     };
 
-    reader.readAsDataURL(file);
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   render() {
@@ -160,8 +162,10 @@ class PostForm extends Component {
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
             </Select>
+            <Label htmlFor="image">Image</Label>
             <Input
               type="file"
+              id="image"
               accept="image/jpeg, image/png"
               onChange={this.handleImageChange}
             />
