@@ -46,3 +46,19 @@
   max-width: 100%;
   width: 300px;
 }
+
+@media screen and (min-width: 800px) {
+  .Info {
+    width: 65%;
+  }
+
+  .Info__blurb-title {
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .Info__blurb {
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+}
