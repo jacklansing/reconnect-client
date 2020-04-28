@@ -43,13 +43,6 @@
 }
 
 .Info__image {
-  max-width: 80%;
-  border: 1px solid black;
-  border-radius: 4px;
-}
-
-@media screen and (min-width: 800px) {
-  .Info__image {
-    width: 400px;
-  }
+  max-width: 100%;
+  width: 300px;
 }
