@@ -93,6 +93,7 @@ class PostsList extends Component {
                 Albany, NY
               </option>
               <option value="Schenectady, NY">Schenectady, NY</option>
+              <option value="Troy, NY">Troy, NY</option>
             </Select>
             {error && <Alert>{error}</Alert>}
             <Button type="submit">Search Now</Button>
