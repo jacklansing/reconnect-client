@@ -10,8 +10,8 @@ const Landing = props => {
       <section className="Info">
         <div className="Info__intro">
           <p>
-            Have a bunch of old iPhones sitting in your drawer? Use Re-Connect
-            to help give back to the community.
+            Have a bunch of old phones sitting in your drawer? Use Re-Connect to
+            help give back to your community.
           </p>
           <p>Get started by signing up today.</p>
           <Link to="/sign-up">Sign Up Now</Link>
