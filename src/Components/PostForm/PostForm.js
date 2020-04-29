@@ -161,6 +161,7 @@ class PostForm extends Component {
             >
               <option value="Albany, NY">Albany, NY</option>
               <option value="Schenectady, NY">Schenectady, NY</option>
+              <option value="Troy, NY">Troy, NY</option>
             </Select>
             <Label htmlFor="image">Image</Label>
             <Input
